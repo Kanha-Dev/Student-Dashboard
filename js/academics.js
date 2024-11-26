@@ -48,17 +48,17 @@ async function updateUserDetails() {
         if (!response2.ok) throw new Error("Failed to fetch student marks");
 
         const data2 = await response2.json();
+        const rows = document.querySelectorAll("#marks-table-body tr");
 
         //Other elements
-        document.getElementById("maths").textContent = data2[0].marks || "N/A";
-
-        // Store sid in local storage for use in other files
-        if (data.sid) {
-            localStorage.setItem('sid', data.sid);
-            console.log(`SID ${data.sid} stored in local storage.`);
-        } else {
-            console.warn("SID is missing in the response data.");
-        }
+        data2.forEach((item, index) => {
+            const row = rows[index];
+            row.children[1].textContent = item.SubjectName || "N/A";
+            row.children[2].textContent = item.MTE || "N/A";
+            row.children[3].textContent = item.CWS || "N/A";
+            row.children[4].textContent = item.ETE || "N/A";
+            row.children[5].textContent = item.Total || "N/A";
+        });
     } catch (error) {
         console.error("Error updating user details:", error);
     }

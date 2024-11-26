@@ -36,13 +36,12 @@ app.get('/api/student/:regNumber', (req, res) => {
     });
 });
 
-// API endpoint to get student marks
 app.get('/api/studentMarks/:regNumber', (req, res) => {
     const regNumber = req.params.regNumber;
     const query = `SELECT 
                     S.sid,
                     S.sname AS StudentName,
-                    Sub.subid,
+                    Sub.subid AS SubjectId,
                     Sub.subject_name AS SubjectName,
                     M.MTE,
                     M.CWS,
@@ -65,10 +64,11 @@ app.get('/api/studentMarks/:regNumber', (req, res) => {
         if (err) {
             res.status(500).json({ error: "Database query failed" });
         } else {
-            res.json(result[0]); // Send the first row of the result
+            res.json(result); // Send the result (array of subjects with marks data)
         }
     });
 });
+
 
 // Start the server
 app.listen(PORT, () => {
