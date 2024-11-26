@@ -111,15 +111,26 @@ canvas {
 
 /* Styling for the left pane */
 .pane1 {
-    width: 65%; /* Adjust width for the left pane */
+    width: 70%; /* Slightly narrower left pane */
+    margin-right: 20px; /* Space between panes */
 }
 
 /* Styling for the right pane */
 .pane2 {
-    width: 30%; /* Adjust width for the right pane */
-    background-color: #fff; /* White background */
-    border-radius: 10px; /* Rounded corners */
+    width: 20%; /* Reduced width for the notice panel */
+    background-color: #fff;
+    border-radius: 10px;
     padding: 20px;
+    margin-left: 20px; /* Add space between the panes */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Adjust the Daily Notice Section */
+.daily-notice {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Daily Notice Header */
@@ -127,8 +138,8 @@ canvas {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: transparent; /* Make background transparent */
-    color: #333; /* Ensure text is visible */
+    background-color: transparent;
+    color: #333;
 }
 
 .daily-notice-header h2 {
@@ -143,7 +154,7 @@ canvas {
 
 /* Daily Notice Section */
 .daily-notice .notice-content {
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 .notice-item {
@@ -181,25 +192,6 @@ canvas {
 
 /* Mobile responsiveness */
 @media (max-width: 768px) {
-    .accordion-header {
-        font-size: 1rem; /* Slightly smaller font on mobile */
-        padding: 10px;
-    }
-
-    .accordion-content p {
-        font-size: 0.9rem; /* Adjust text size for readability */
-    }
-
-    .section-heading {
-        font-size: 1.25rem; /* Adjust heading size on mobile */
-        margin: 15px 0; /* Reduced space */
-    }
-
-    .attendance-info, .pie-chart {
-        width: 100%; /* Full width for smaller screens */
-        margin-bottom: 15px;
-    }
-
     .main-sections {
         flex-direction: column; /* Stack the sections vertically on small screens */
         align-items: center; /* Center content */
@@ -208,5 +200,9 @@ canvas {
     .pane1, .pane2 {
         width: 100%; /* Full width for each pane */
         margin-bottom: 20px; /* Add margin for spacing */
+    }
+
+    .pane2 {
+        margin-left: 0;
     }
 }
