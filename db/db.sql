@@ -285,3 +285,169 @@ INSERT INTO Student (sid, sname, mob, email, permanent_address, current_address,
 (3, 'Vikas Kumar', '7654321980', 'vikas.kumar@example.com', '98 Purple Colony, Bangalore', '23 Orange Plaza, Mysore', 'Rajesh Kumar', '7654321981', 'rajesh.kumar@example.com', '3456-7890-1234', 2, 3),
 (4, 'Pooja Singh', '6543219870', 'pooja.singh@example.com', '67 Greenfield, Jaipur', '90 Blue Valley, Jodhpur', 'Mahesh Singh', '6543219871', 'mahesh.singh@example.com', '4567-8901-2345', 3, 4),
 (5, 'Rohit Verma', '5432198760', 'rohit.verma@example.com', '34 Sunrise Apartments, Chandigarh', '56 Sunset Road, Shimla', 'Vinod Verma', '5432198761', 'vinod.verma@example.com', '5678-9012-3456', 4, 5);
+
+INSERT INTO Subject (subid, depid) VALUES
+(2130, 1), -- Software Engineering
+(2131, 1), -- Cryptography and Technology
+(2132, 1), -- Design and Analysis of Algorithms
+(2133, 1), -- Foundation of Data Science
+(2314, 1); -- Web Programming
+
+INSERT INTO Marks (mid, MTE, CWS, ETE, grade, remarks) VALUES
+(1, 25, 20, 45, 'A', 'Excellent performance'),
+(2, 18, 15, 35, 'B', 'Good effort, scope for improvement'),
+(3, 20, 10, 30, 'C', 'Needs more practice'),
+(4, 22, 18, 40, 'B', 'Consistent work, keep it up'),
+(5, 28, 25, 50, 'A', 'Outstanding performance'),
+(6, 15, 10, 25, 'D', 'Below average, requires significant improvement'),
+(7, 19, 12, 32, 'C', 'Fair work, but needs focus'),
+(8, 24, 20, 46, 'A', 'Great effort and understanding'),
+(9, 21, 18, 39, 'B', 'Steady progress, good understanding'),
+(10, 16, 14, 28, 'C', 'Average performance, needs improvement');
+
+-- For Student 1 (Arjun Mehta)
+INSERT INTO RelationalTable_R2 (sid, subid, mid) VALUES
+(1, 2130, 1), -- Software Engineering
+(1, 2131, 2), -- Cryptography and Technology
+(1, 2132, 3), -- Design and Analysis of Algorithms
+(1, 2133, 4), -- Foundation of Data Science
+(1, 2314, 5); -- Web Programming
+
+-- For Student 2 (Neha Sharma)
+INSERT INTO RelationalTable_R2 (sid, subid, mid) VALUES
+(2, 2130, 6), -- Software Engineering
+(2, 2131, 7), -- Cryptography and Technology
+(2, 2132, 8), -- Design and Analysis of Algorithms
+(2, 2133, 9), -- Foundation of Data Science
+(2, 2314, 10); -- Web Programming
+
+ALTER TABLE Subject
+ADD subject_name VARCHAR(255) NOT NULL;
+
+UPDATE Subject
+SET subject_name = CASE subid
+    WHEN 2130 THEN 'Software Engineering'
+    WHEN 2131 THEN 'Cryptography and Technology'
+    WHEN 2132 THEN 'Design and Analysis of Algorithms'
+    WHEN 2133 THEN 'Foundation of Data Science'
+    WHEN 2314 THEN 'Web Programming'
+    ELSE subject_name
+END;
+
+ALTER TABLE Attendance
+DROP COLUMN present;
+
+ALTER TABLE Attendance
+DROP COLUMN absent;
+
+ALTER TABLE Attendance
+ADD present BOOLEAN NOT NULL,
+ADD absent BOOLEAN NOT NULL;
+
+-- Updated Attendance Records (Each row is for one period of a subject)
+INSERT INTO Attendance (aid, present, absent, not_considered) VALUES
+(1, TRUE, FALSE, 0),
+(2, TRUE, FALSE, 0),
+(3, FALSE, TRUE, 0),
+(4, TRUE, FALSE, 0),
+(5, TRUE, FALSE, 0),
+
+(6, FALSE, TRUE, 0),
+(7, TRUE, FALSE, 0),
+(8, TRUE, FALSE, 0),
+(9, TRUE, FALSE, 0),
+(10, FALSE, TRUE, 1),
+
+(11, TRUE, FALSE, 0),
+(12, TRUE, FALSE, 0),
+(13, FALSE, TRUE, 0),
+(14, TRUE, FALSE, 0),
+(15, TRUE, FALSE, 0),
+
+(16, FALSE, TRUE, 0),
+(17, TRUE, FALSE, 0),
+(18, TRUE, FALSE, 0),
+(19, TRUE, FALSE, 0),
+(20, FALSE, TRUE, 1);
+
+-- For Student 1 (sid = 1)
+INSERT INTO RelationalTable_R3 (sid, subid, aid) VALUES
+(1, 2130, 1), (1, 2130, 2), (1, 2130, 3), (1, 2130, 4), (1, 2130, 5), -- Software Engineering
+(1, 2131, 6), (1, 2131, 7), (1, 2131, 8), (1, 2131, 9), (1, 2131, 10), -- Cryptography and Technology
+(1, 2132, 11), (1, 2132, 12), (1, 2132, 13), (1, 2132, 14), (1, 2132, 15), -- Design and Analysis of Algorithms
+(1, 2133, 16), (1, 2133, 17), (1, 2133, 18), (1, 2133, 19), (1, 2133, 20); -- Foundation of Data Science
+
+-- For Student 2 (sid = 2)
+INSERT INTO RelationalTable_R3 (sid, subid, aid) VALUES
+(2, 2130, 1), (2, 2130, 2), (2, 2130, 3), (2, 2130, 4), (2, 2130, 5), -- Software Engineering
+(2, 2131, 6), (2, 2131, 7), (2, 2131, 8), (2, 2131, 9), (2, 2131, 10), -- Cryptography and Technology
+(2, 2132, 11), (2, 2132, 12), (2, 2132, 13), (2, 2132, 14), (2, 2132, 15), -- Design and Analysis of Algorithms
+(2, 2133, 16), (2, 2133, 17), (2, 2133, 18), (2, 2133, 19), (2, 2133, 20); -- Foundation of Data Science
+
+-- For Class 1 (classid = 1)
+INSERT INTO RelationalTable_R4 (classid, pid, aid) VALUES
+-- Software Engineering (subid: 2130)
+(1, 1, 1), 
+(1, 2, 2), 
+(1, 3, 3), 
+(1, 4, 4), 
+(1, 5, 5),
+
+-- Cryptography and Technology (subid: 2131)
+(1, 6, 6), 
+(1, 7, 7), 
+(1, 8, 8), 
+(1, 9, 9), 
+(1, 10, 10),
+
+-- Design and Analysis of Algorithms (subid: 2132)
+(1, 11, 11), 
+(1, 12, 12), 
+(1, 13, 13), 
+(1, 14, 14), 
+(1, 15, 15),
+
+-- Foundation of Data Science (subid: 2133)
+(1, 16, 16), 
+(1, 17, 17), 
+(1, 18, 18), 
+(1, 19, 19), 
+(1, 20, 20);
+
+INSERT INTO Period (pid, time, date, duration, subid) VALUES
+-- Software Engineering (subid: 2130)
+(1, '09:00:00', '2024-11-01', 60, 2130),
+(2, '09:00:00', '2024-11-02', 60, 2130),
+(3, '09:00:00', '2024-11-03', 60, 2130),
+(4, '09:00:00', '2024-11-04', 60, 2130),
+(5, '09:00:00', '2024-11-05', 60, 2130),
+
+-- Cryptography and Technology (subid: 2131)
+(6, '10:00:00', '2024-11-01', 60, 2131),
+(7, '10:00:00', '2024-11-02', 60, 2131),
+(8, '10:00:00', '2024-11-03', 60, 2131),
+(9, '10:00:00', '2024-11-04', 60, 2131),
+(10, '10:00:00', '2024-11-05', 60, 2131),
+
+-- Design and Analysis of Algorithms (subid: 2132)
+(11, '11:00:00', '2024-11-01', 60, 2132),
+(12, '11:00:00', '2024-11-02', 60, 2132),
+(13, '11:00:00', '2024-11-03', 60, 2132),
+(14, '11:00:00', '2024-11-04', 60, 2132),
+(15, '11:00:00', '2024-11-05', 60, 2132),
+
+-- Foundation of Data Science (subid: 2133)
+(16, '12:00:00', '2024-11-01', 60, 2133),
+(17, '12:00:00', '2024-11-02', 60, 2133),
+(18, '12:00:00', '2024-11-03', 60, 2133),
+(19, '12:00:00', '2024-11-04', 60, 2133),
+(20, '12:00:00', '2024-11-05', 60, 2133),
+
+-- Web Programming (subid: 2314)
+(21, '13:00:00', '2024-11-01', 60, 2314),
+(22, '13:00:00', '2024-11-02', 60, 2314),
+(23, '13:00:00', '2024-11-03', 60, 2314),
+(24, '13:00:00', '2024-11-04', 60, 2314),
+(25, '13:00:00', '2024-11-05', 60, 2314);
+
+SELECT * FROM Attendance;

@@ -69,6 +69,41 @@ app.get('/api/studentMarks/:regNumber', (req, res) => {
     });
 });
 
+// API endpoint to get today's schedule based on sid
+app.get('/api/todaysSchedule/:sid', (req, res) => {
+    const sid = req.params.sid;
+    // const today = new Date().toISOString().slice(0, 10); // Format as 'YYYY-MM-DD'
+    const today = '2024-11-01'; // For testing purposes
+
+    const query = `
+SELECT 
+    p.pid,
+    s.subject_name AS subname,
+    p.time,
+    p.date
+FROM 
+    Period p
+NATURAL JOIN 
+    RelationalTable_R4 r4
+NATURAL JOIN 
+    RelationalTable_R3 r3
+NATURAL JOIN 
+    Subject s
+WHERE 
+    r3.sid = 1
+    AND p.date = '2024-11-01';
+    `;
+
+    con.query(query, sid, (err, result) => {
+        if (err) {
+            console.error("Error executing query: ", err);
+            res.status(500).json({ error: "Database query failed" });
+        } else {
+            res.json(result);
+        }
+    });
+});
+
 
 // Start the server
 app.listen(PORT, () => {

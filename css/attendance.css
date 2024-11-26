@@ -13,7 +13,6 @@
 /* Accordion item styles */
 .accordion-item {
     margin-bottom: 10px;
-    /* Rounded corners for each accordion item */
     background-color: #fff; /* White background for items */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow */
     border-radius: 10px;
@@ -25,18 +24,16 @@
     width: 100%;
     background-color: #ff9900; /* Theme color */
     color: #fff;
-    padding: 5px;
     text-align: left;
     font-weight: 600;
     cursor: pointer;
     border: none;
     outline: none;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column; /* Allows stacking the content inside */
+    padding: 15px;
     border-radius: 10px;
     transition: background-color 0.3s ease, box-shadow 0.3s;
-    
 }
 
 /* Hover effect for the accordion header */
@@ -45,40 +42,64 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow on hover */
 }
 
-/* Accordion content styles */
-.accordion-content {
-    color: #333;
-    background-color: #fff;
-    overflow: hidden;
-    max-height: 300px; /* Initially collapsed */
-    transition: max-height 0.3s ease-out, padding 0.3s ease-out;
-    padding: 0 15px; /* Default padding for collapsed state */
-    border-top: 1px solid transparent; /* Transparent strip below */
+/* Accordion summary styles (subject name) */
+.accordion-header summary {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    list-style: none; /* Remove default summary bullet */
+    margin: 0; /* Remove default margin */
 }
 
+/* Accordion content styles */
+.accordion-content {
+    color: #fff; /* White text color */
+    background-color: #ff9900; /* Orange background */
+    overflow: hidden;
+    max-height: 0; /* Initially collapsed */
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+    padding: 0 15px; /* Padding on collapse */
+    margin-top: 10px; /* Space between subject name and details */
+    border-top: 1px solid #e6e6e6; /* Optional: border for separation */
+    padding-right: 20px; /* Right padding */
+}
 
-
+/* Expanded content */
+.accordion-header[open] .accordion-content {
+    max-height: 500px; /* Adjust height for content */
+    padding: 10px 20px; /* Padding for content when expanded */
+    border-top: 1px solid #e6e6e6;
+}
 
 /* Attendance info styles (Total, Present, Absent) */
 .attendance-info {
-    width: 48%; /* Adjust the width to align with the chart */
+    width: 65%; /* Adjust the width to align with the chart */
     font-size: 1rem;
+    display: inline-block;
+    vertical-align: top;
+    color: white;
 }
 
 .attendance-info p {
     margin: 10px 0;
+    color: white;
 }
 
+/* Pie chart section */
 .pie-chart {
-    width: 48%; /* Adjust the width to align with the info section */
+    width: 30%; /* Adjust the width of the pie chart */
+    display: inline-block;
+    vertical-align: top;
+    max-width: 200px; /* Limit the size of the pie chart */
+    height: 200px; /* Fixed height for the chart */
+    margin-left: 10px; /* Space between attendance info and chart */
 }
 
 /* Pie chart canvas styling */
 canvas {
     width: 100% !important;
-    height: auto !important;
+    height: 100% !important; /* Ensure the chart fills the container */
 }
 
 /* Pane 1 and 2 styles */

@@ -1,159 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Dashboard</title>
-    <link rel="stylesheet" href="../css/home.css"> <!-- Link to your CSS file -->
-    <link rel="stylesheet" href="../css/attendance.css"> <!-- Link to your CSS file -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js"></script>
-    <script type="module" src="./js/logout.js" defer></script>
-    <script src="../js/attendance.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Dashboard</title>
+  <link rel="stylesheet" href="../css/home.css" />
+  <link rel="stylesheet" href="../css/attendance.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="../js/attendance.js" defer></script> <!-- Link to the new JS file -->
 </head>
+
 <body>
-    <div class="dashboard-container">
-        <!-- Sidebar -->
-        <aside class="sidebar">
-            <div class="profile-section">
-                <img src="../images/home/image2.png" alt="User Profile" class="profile-icon">
-                <p class="user-name">Kanha Gupta</p>
-                <p class="user-reg">229303421</p>
-            </div>
-            <nav class="menu">
-                <a href="../home.html" class="menu-item">Dashboard</a>
-                <a href="./personalDetails.html" class="menu-item">Personal Details</a>
-                <a href="./attendance.html" class="menu-item active">Attendance</a>
-                <a href="./timetable.html" class="menu-item">TimeTable</a>
-                <a href="./clubs.html" class="menu-item">Clubs</a>
-                <a href="./academics.html" class="menu-item">Academics</a>
-                <a href="./notice.html" class="menu-item">Notice</a>
-                <a href="./schedule.html" class="menu-item">Schedule</a>
-                <a href="../index.html" class="menu-item" id="logout-button">Logout</a>
-            </nav>
-            
-        </aside>
-<!-- Main Content -->
-<main class="main-content">
-    <!-- Header -->
-    <div class="header">
-        <input type="text" class="search-bar" placeholder="Search...">
+  <div class="dashboard-container">
+    <aside class="sidebar">
+      <div class="profile-section">
+        <img src="../images/home/image2.png" alt="User Profile" class="profile-icon" />
+        <p class="user-name">Kanha Gupta</p>
+        <p class="user-reg">229303421</p>
+      </div>
+      <nav class="menu">
+        <a href="../home.html" class="menu-item">Dashboard</a>
+        <a href="./personalDetails.html" class="menu-item">Personal Details</a>
+        <a href="./attendance.html" class="menu-item active">Attendance</a>
+        <a href="pages/timetable.html" class="menu-item">TimeTable</a>
+        <a href="./clubs.html" class="menu-item">Clubs</a>
+        <a href="./academics.html" class="menu-item">Academics</a>
+        <a href="./notice.html" class="menu-item">Notice</a>
+        <a href="./schedule.html" class="menu-item">Schedule</a>
+        <a href="../index.html" class="menu-item" id="logout-button">Logout</a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="header">
+        <input type="text" class="search-bar" placeholder="Search..." />
         <div class="header-right">
-            <div class="notification-icon">
-                <img src="../images/home/image3.png" alt="Notification Icon">
-            </div>
+          <div class="notification-icon">
+            <img src="../images/home/image3.png" alt="Notification Icon" />
+          </div>
         </div>
-    </div>
+      </div>
 
-    <!-- Welcome Banner -->
-    <section class="welcome-banner">
+      <section class="welcome-banner">
         <div class="welcome-text">
-            <p class="date">Today's Date</p>
-            <h1 id="nameheading">Welcome back, Kanha!</h1>
-            <p>Always stay updated in your student portal</p>
+          <p class="date">Today's Date</p>
+          <h1 id="nameheading">Welcome back, Kanha!</h1>
+          <p>Always stay updated in your student portal</p>
         </div>
-        <img src="../images/personalDetails/2.png"" alt="Welcome Image" class="welcome-image">
-    </section>
+        <img src="../images/personalDetails/2.png" alt="Welcome Image" class="welcome-image" />
+      </section>
 
-    <!-- Main Pane Sections -->
-    <div class="main-sections">
-        <!-- Pane 1 -->
+      <div class="main-sections">
         <div class="pane1">
-            <!-- Accordion Section -->
-            <section class="accordion-section">
-                <h2 class="section-heading">Subjects</h2>
-                <div class="accordion">
-                    <div class="accordion-item">
-                        <details class="accordion-header"><summary>Software Engineering CC2130</summary><div class="accordion-content">
-                            <p>Details about attendance...</p>
-                        </div></details>
-                    </div>
-                    <div class="accordion-item">
-                        <details class="accordion-header"><summary>Cryptography and Technology CC2131</summary><div class="accordion-content">
-                            <p>Details about attendance...</p>
-                        </div></details>
-                    </div>
-                    <div class="accordion-item">
-                        <details class="accordion-header"><summary>Design and analysis of algorithms CC2132 </summary><div class="accordion-content">
-                            <p>Details about attendance...</p>
-                        </div></details>
-                    </div>
-                    <div class="accordion-item">
-                        <details class="accordion-header"><summary>Foundation of Data Science CC2133 </summary><div class="accordion-content">
-                            <p>Details about attendance...</p>
-                        </div></details>
-                    </div>
-                    <div class="accordion-item">
-                        <details class="accordion-header"><summary>Web Programming CC2314 </summary><div class="accordion-content">
-                            <p>Details about attendance...</p>
-                        </div></details>
-                    </div>
-                    
-                    
-                </div>
-            </section>
-        </div>
+          <section class="accordion-section">
+            <h2 class="section-heading">Subjects</h2>
+            <div class="accordion">
 
-        <!-- Pane 2 -->
-        <div class="pane2">
-            <!-- Daily Notice Heading -->
-            <div class="daily-notice-header">
-                <h2>Daily Notice</h2>
-                <a href="#" class="see-all">See all</a>
+              <!-- Software Engineering CC2130 -->
+              <div class="accordion-item">
+                <details class="accordion-header">
+                  <summary>
+                    Software Engineering CC2130 <span class="accordion-icon">v</span>
+                  </summary>
+                  <div class="accordion-content">
+                    <div class="attendance-info">
+                      <p><strong>Total Classes:</strong> 30</p>
+                      <p><strong>Classes Attended:</strong> 25</p>
+                      <p><strong>Classes Missed:</strong> 5</p>
+                    </div>
+                    <div class="pie-chart">
+                      <canvas id="attendanceChart1"></canvas>
+                    </div>
+                  </div>
+                </details>
+              </div>
+
+              <!-- Data Structures DS2010 -->
+              <div class="accordion-item">
+                <details class="accordion-header">
+                  <summary>
+                    Data Structures DS2010 <span class="accordion-icon">v</span>
+                  </summary>
+                  <div class="accordion-content">
+                    <div class="attendance-info">
+                      <p><strong>Total Classes:</strong> 40</p>
+                      <p><strong>Classes Attended:</strong> 30</p>
+                      <p><strong>Classes Missed:</strong> 10</p>
+                    </div>
+                    <div class="pie-chart">
+                      <canvas id="attendanceChart2"></canvas>
+                    </div>
+                  </div>
+                </details>
+              </div>
+
+              <!-- Operating Systems OS2200 -->
+              <div class="accordion-item">
+                <details class="accordion-header">
+                  <summary>
+                    Operating Systems OS2200 <span class="accordion-icon">v</span>
+                  </summary>
+                  <div class="accordion-content">
+                    <div class="attendance-info">
+                      <p><strong>Total Classes:</strong> 35</p>
+                      <p><strong>Classes Attended:</strong> 30</p>
+                      <p><strong>Classes Missed:</strong> 5</p>
+                    </div>
+                    <div class="pie-chart">
+                      <canvas id="attendanceChart3"></canvas>
+                    </div>
+                  </div>
+                </details>
+              </div>
+
+              <!-- Database Management DB2040 -->
+              <div class="accordion-item">
+                <details class="accordion-header">
+                  <summary>
+                    Database Management DB2040 <span class="accordion-icon">v</span>
+                  </summary>
+                  <div class="accordion-content">
+                    <div class="attendance-info">
+                      <p><strong>Total Classes:</strong> 45</p>
+                      <p><strong>Classes Attended:</strong> 40</p>
+                      <p><strong>Classes Missed:</strong> 5</p>
+                    </div>
+                    <div class="pie-chart">
+                      <canvas id="attendanceChart4"></canvas>
+                    </div>
+                  </div>
+                </details>
+              </div>
+
+              <!-- Web Development WD3100 -->
+              <div class="accordion-item">
+                <details class="accordion-header">
+                  <summary>
+                    Web Development WD3100 <span class="accordion-icon">v</span>
+                  </summary>
+                  <div class="accordion-content">
+                    <div class="attendance-info">
+                      <p><strong>Total Classes:</strong> 25</p>
+                      <p><strong>Classes Attended:</strong> 20</p>
+                      <p><strong>Classes Missed:</strong> 5</p>
+                    </div>
+                    <div class="pie-chart">
+                      <canvas id="attendanceChart5"></canvas>
+                    </div>
+                  </div>
+                </details>
+              </div>
+
             </div>
-            <!-- Daily Notice Board -->
-            <section class="daily-notice">
-                <div class="notice-content">
-                    <div class="notice-item">
-                        <p class="notice-title">Prelim payment due</p>
-                        <p class="notice-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        <a href="#" class="see-more">See more</a>
-                    </div>
-                    <div class="notice-item">
-                        <p class="notice-title">Exam schedule</p>
-                        <p class="notice-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        <a href="#" class="see-more">See more</a>
-                    </div>
-                    <div class="notice-item">
-                        <p class="notice-title">Exam schedule</p>
-                        <p class="notice-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        <a href="#" class="see-more">See more</a>
-                    </div>
-                    <div class="notice-item">
-                        <p class="notice-title">Exam schedule</p>
-                        <p class="notice-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        <a href="#" class="see-more">See more</a>
-                    </div>
-                    <!-- Add more notice items here if needed -->
-                </div>
-            </section>
+          </section>
         </div>
-    </div>
-</main>
 
-<!-- Add this JavaScript to make the accordion functional -->
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        // Get all the accordion headers
-        const accordionHeaders = document.querySelectorAll('.accordion-header');
-    
-        // Loop through each header and add a click event listener
-        accordionHeaders.forEach(header => {
-            header.addEventListener('click', function () {
-                const content = header.nextElementSibling; // Get the associated content
-                const icon = header.querySelector('span'); // Get the expand/collapse icon
-    
-                // Toggle the display of the accordion content
-                if (content.style.maxHeight) {
-                    content.style.maxHeight = null; // Collapse the content
-                    icon.textContent = 'v'; // Change the icon back to down
-                } else {
-                    content.style.maxHeight = content.scrollHeight + 'px'; // Expand the content
-                    icon.textContent = '^'; // Change the icon to up
-                }
-            });
-        });
-    });
-    
-</script>
+        <div class="pane2">
+          <div class="daily-notice-header">
+            <h2>Daily Notice</h2>
+            <a href="#" class="see-all">See all</a>
+          </div>
+          <section class="daily-notice">
+            <div class="notice-content">
+              <div class="notice-item">
+                <p class="notice-title">Prelim payment due</p>
+                <p class="notice-description">Lorem ipsum dolor sit amet...</p>
+                <a href="#" class="see-more">See more</a>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>
