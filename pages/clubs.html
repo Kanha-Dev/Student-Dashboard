@@ -1,3 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="../css/home.css"> <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="../css/clubs.css"> <!-- Link to your CSS file -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js"></script>
+    <script type="module" src="./js/logout.js" defer></script>
+    <script src="../js/academics.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="profile-section">
+                <img src="../images/home/image2.png" alt="User Profile" class="profile-icon">
+                <p class="user-name">Kanha Gupta</p>
+                <p class="user-reg">229303421</p>
+            </div>
+            <nav class="menu">
+                <a href="../home.html" class="menu-item">Dashboard</a>
+                <a href="./personalDetails.html" class="menu-item">Personal Details</a>
+                <a href="./attendance.html" class="menu-item">Attendance</a>
+                <a href="pages/timetable.html" class="menu-item">TimeTable</a>
+                <a href="./clubs.html" class="menu-item">Clubs</a>
+                <a href="./academics.html" class="menu-item active">Academics</a>
+                <a href="./notice.html" class="menu-item">Notice</a>
+                <a href="./schedule.html" class="menu-item">Schedule</a>
+                <a href="#" class="menu-item" id="logout-button">Logout</a>
+            </nav>
+            
+        </aside>
 <!-- Main Content -->
 <main class="main-content">
     <!-- Header -->
@@ -164,3 +200,7 @@
         }
     });
 </script>
+
+    <!-- Include the JS file for dynamic content interactions -->
+</body>
+</html>

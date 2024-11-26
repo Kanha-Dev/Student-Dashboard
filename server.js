@@ -36,6 +36,40 @@ app.get('/api/student/:regNumber', (req, res) => {
     });
 });
 
+// API endpoint to get student marks
+app.get('/api/studentMarks/:regNumber', (req, res) => {
+    const regNumber = req.params.regNumber;
+    const query = `SELECT 
+                    S.sid,
+                    S.sname AS StudentName,
+                    Sub.subid,
+                    Sub.subject_name AS SubjectName,
+                    M.MTE,
+                    M.CWS,
+                    M.ETE,
+                    M.Total,
+                    M.grade,
+                    M.remarks
+                FROM 
+                    Student S
+                JOIN 
+                    RelationalTable_R2 R ON S.sid = R.sid
+                JOIN 
+                    Subject Sub ON R.subid = Sub.subid
+                JOIN 
+                    Marks M ON R.mid = M.mid
+                WHERE 
+                    S.sid = ?`;
+
+    con.query(query, [regNumber], (err, result) => {
+        if (err) {
+            res.status(500).json({ error: "Database query failed" });
+        } else {
+            res.json(result[0]); // Send the first row of the result
+        }
+    });
+});
+
 // Start the server
 app.listen(PORT, () => {
     console.log(`Server running at http://localhost:${PORT}`);

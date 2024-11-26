@@ -29,35 +29,32 @@
                 <h2 class="section-heading">Subjects</h2>
                 <div class="accordion">
                     <div class="accordion-item">
-                        <button class="accordion-header">Software Engineering CC2130 <span>v</span></button>
-                        <div class="accordion-content">
+                        <details class="accordion-header"><summary>Software Engineering CC2130</summary><div class="accordion-content">
                             <p>Details about attendance...</p>
-                        </div>
+                        </div></details>
                     </div>
                     <div class="accordion-item">
-                        <button class="accordion-header">Cryptography and Technology CC2131 <span>v</span></button>
-                        <div class="accordion-content">
+                        <details class="accordion-header"><summary>Cryptography and Technology CC2131</summary><div class="accordion-content">
                             <p>Details about attendance...</p>
-                        </div>
+                        </div></details>
                     </div>
                     <div class="accordion-item">
-                        <button class="accordion-header">Design and analysis of algorithms CC2132 <span>v</span></button>
-                        <div class="accordion-content">
+                        <details class="accordion-header"><summary>Design and analysis of algorithms CC2132 </summary><div class="accordion-content">
                             <p>Details about attendance...</p>
-                        </div>
+                        </div></details>
                     </div>
                     <div class="accordion-item">
-                        <button class="accordion-header">Foundation of Data Science CC2133 <span>v</span></button>
-                        <div class="accordion-content">
+                        <details class="accordion-header"><summary>Foundation of Data Science CC2133 </summary><div class="accordion-content">
                             <p>Details about attendance...</p>
-                        </div>
+                        </div></details>
                     </div>
                     <div class="accordion-item">
-                        <button class="accordion-header">Web Programming CC2314 <span>v</span></button>
-                        <div class="accordion-content">
+                        <details class="accordion-header"><summary>Web Programming CC2314 </summary><div class="accordion-content">
                             <p>Details about attendance...</p>
-                        </div>
+                        </div></details>
                     </div>
+                    
+                    
                 </div>
             </section>
         </div>
@@ -104,13 +101,13 @@
     document.addEventListener('DOMContentLoaded', function () {
         // Get all the accordion headers
         const accordionHeaders = document.querySelectorAll('.accordion-header');
-        
+    
         // Loop through each header and add a click event listener
         accordionHeaders.forEach(header => {
             header.addEventListener('click', function () {
                 const content = header.nextElementSibling; // Get the associated content
                 const icon = header.querySelector('span'); // Get the expand/collapse icon
-                
+    
                 // Toggle the display of the accordion content
                 if (content.style.maxHeight) {
                     content.style.maxHeight = null; // Collapse the content
@@ -122,4 +119,5 @@
             });
         });
     });
+    
 </script>

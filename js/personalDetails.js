@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', () => {
     // Sidebar Navigation Active State Toggle
     const menuItems = document.querySelectorAll('.menu-item');
@@ -22,57 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const query = this.value.toLowerCase();
         filterContent(query);
     });
-
-    function filterContent(query) {
-        // Filter Today's Classes
-        const classItems = document.querySelectorAll('.class-item');
-        classItems.forEach(item => {
-            const text = item.textContent.toLowerCase();
-            item.style.display = text.includes(query) ? '' : 'none';
-        });
-
-        // Filter Today's News
-        const newsItems = document.querySelectorAll('.news-item');
-        newsItems.forEach(item => {
-            const text = item.textContent.toLowerCase();
-            item.style.display = text.includes(query) ? '' : 'none';
-        });
-
-        // Filter Daily Notices
-        const noticeItems = document.querySelectorAll('.notice-item');
-        noticeItems.forEach(item => {
-            const text = item.textContent.toLowerCase();
-            item.style.display = text.includes(query) ? '' : 'none';
-        });
-    }
-
-    // Scroll Today's News Horizontally
-    const newsSection = document.querySelector('.news-section');
-    let isDown = false;
-    let startX;
-    let scrollLeft;
-
-    newsSection.addEventListener('mousedown', (e) => {
-        isDown = true;
-        startX = e.pageX - newsSection.offsetLeft;
-        scrollLeft = newsSection.scrollLeft;
-    });
-
-    newsSection.addEventListener('mouseleave', () => {
-        isDown = false;
-    });
-
-    newsSection.addEventListener('mouseup', () => {
-        isDown = false;
-    });
-
-    newsSection.addEventListener('mousemove', (e) => {
-        if (!isDown) return;
-        e.preventDefault();
-        const x = e.pageX - newsSection.offsetLeft;
-        const walk = (x - startX) * 2; // Scroll speed
-        newsSection.scrollLeft = scrollLeft - walk;
-    });
 });
 
 // Replace with the actual registration number of the user (could be dynamically set)
@@ -88,10 +38,21 @@ async function updateUserDetails() {
 
         // Update DOM elements
          // Update DOM elements only if they haven't been updated before
-        const nameElement = document.getElementById("name");
+        const nameElement = document.getElementById("nameheading");
         nameElement.textContent = "Welcome back, " + data.sname + "!" || "N/A";
         document.querySelector('.user-name').textContent = data.sname || "N/A";
         document.querySelector('.user-reg').textContent = data.sid || "N/A";
+        
+        //Other elements
+        document.getElementById('name').value = data.sname || '';
+        document.getElementById('reg-no').value = data.sid || '';
+        document.getElementById('email').value = data.email || '';
+        document.getElementById('mobile-no').value = data.mob || '';
+        document.getElementById('address').value = data.current_address || '';
+        document.getElementById('semester').value = data.department || '';
+        document.getElementById('section').value = data.department || '';
+        document.getElementById('guardian-name').value = data.department || '';
+        document.getElementById('guardian-email').value = data.department || '';
 
         // Store sid in local storage for use in other files
         if (data.sid) {
@@ -107,7 +68,6 @@ async function updateUserDetails() {
 
 // Call the function when the page loads
 document.addEventListener('DOMContentLoaded', updateUserDetails);
-
 
 // Update active menu item
 function updateActiveMenu(activePage) {

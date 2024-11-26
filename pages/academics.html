@@ -1,89 +1,129 @@
-<!-- Main Content -->
-<main class="main-content">
-    <!-- Header -->
-    <div class="header">
-        <input type="text" class="search-bar" placeholder="Search...">
-        <div class="header-right">
-            <div class="notification-icon">
-                <img src="images/home/image3.png" alt="Notification Icon">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="../css/home.css"> <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="../css/academics.css"> <!-- Link to your CSS file -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js"></script>
+    <script type="module" src="./js/logout.js" defer></script>
+    <script src="../js/academics.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="profile-section">
+                <img src="../images/home/image2.png" alt="User Profile" class="profile-icon">
+                <p class="user-name">Kanha Gupta</p>
+                <p class="user-reg">229303421</p>
             </div>
-        </div>
-    </div>
+            <nav class="menu">
+                <a href="../home.html" class="menu-item">Dashboard</a>
+                <a href="./personalDetails.html" class="menu-item">Personal Details</a>
+                <a href="./attendance.html" class="menu-item">Attendance</a>
+                <a href="pages/timetable.html" class="menu-item">TimeTable</a>
+                <a href="./clubs.html" class="menu-item">Clubs</a>
+                <a href="./academics.html" class="menu-item active">Academics</a>
+                <a href="./notice.html" class="menu-item">Notice</a>
+                <a href="./schedule.html" class="menu-item">Schedule</a>
+                <a href="#" class="menu-item" id="logout-button">Logout</a>
+            </nav>
+            
+        </aside>
+            <!-- Main Content -->
+            <main class="main-content">
+                <!-- Header -->
+                <div class="header">
+                    <input type="text" class="search-bar" placeholder="Search...">
+                    <div class="header-right">
+                        <div class="notification-icon">
+                            <img src="images/home/image3.png" alt="Notification Icon">
+                        </div>
+                    </div>
+                </div>
 
-    <!-- Welcome Banner -->
-    <section class="welcome-banner">
-        <div class="welcome-text">
-            <p class="date">Today's Date</p>
-            <h1>Welcome back, Kanha!</h1>
-            <p>Always stay updated in your student portal</p>
-        </div>
-        <img src="images/personalDetails/4.png"" alt="Welcome Image" class="welcome-image">
-    </section>
+                <!-- Welcome Banner -->
+                <section class="welcome-banner">
+                    <div class="welcome-text">
+                        <p class="date">Today's Date</p>
+                        <h1 id="nameheading">Welcome back, Kanha!</h1>
+                        <p>Always stay updated in your student portal</p>
+                    </div>
+                    <img src="images/personalDetails/5.png"" alt="Welcome Image" class="welcome-image">
+                </section>
 
-    <!-- Semester Selection -->
-    <section class="semester-selection">
-        <h2 class="section-heading">Select Semester</h2>
-        <div class="semester-dropdown">
-            <select class="semester-dropdown-select">
-                <option value="sem1">Semester 1</option>
-                <option value="sem2">Semester 2</option>
-                <option value="sem3">Semester 3</option>
-                <option value="sem4">Semester 4</option>
-                <!-- Add more semesters here -->
-            </select>
-            <button class="search-button">Search</button>
-        </div>
-    </section>
+                <!-- Semester Selection -->
+                <section class="semester-selection">
+                    <h2 class="section-heading">Select Semester</h2>
+                    <div class="semester-dropdown">
+                        <select class="semester-dropdown-select">
+                            <option value="sem1">Semester 1</option>
+                            <option value="sem2">Semester 2</option>
+                            <option value="sem3">Semester 3</option>
+                            <option value="sem4">Semester 4</option>
+                            <!-- Add more semesters here -->
+                        </select>
+                        <button class="search-button">Search</button>
+                    </div>
+                </section>
 
-    <!-- Marks Table Section -->
-    <section class="marks-table-section">
-        <h2 class="section-heading">Marks</h2>
-        <table class="marks-table">
-            <thead>
-                <tr>
-                    <th>S.no</th>
-                    <th>Course Name</th>
-                    <th>MTE 1</th>
-                    <th>MTE 2</th>
-                    <th>CWS</th>
-                    <th>Re-session</th>
-                    <th>Finals</th>
-                    <th>Total</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Mathematics</td>
-                    <td>45</td>
-                    <td>40</td>
-                    <td>35</td>
-                    <td>0</td>
-                    <td>75</td>
-                    <td>195</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Physics</td>
-                    <td>40</td>
-                    <td>38</td>
-                    <td>40</td>
-                    <td>0</td>
-                    <td>72</td>
-                    <td>190</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Chemistry</td>
-                    <td>30</td>
-                    <td>33</td>
-                    <td>40</td>
-                    <td>0</td>
-                    <td>68</td>
-                    <td>171</td>
-                </tr>
-                <!-- Add more rows as needed -->
-            </tbody>
-        </table>
-    </section>
-</main>
+                <!-- Marks Table Section -->
+                <section class="marks-table-section">
+                    <h2 class="section-heading">Marks</h2>
+                    <table class="marks-table">
+                        <thead>
+                            <tr>
+                                <th>S.no</th>
+                                <th>Course Name</th>
+                                <th>MTE 1</th>
+                                <th>MTE 2</th>
+                                <th>CWS</th>
+                                <th>Re-session</th>
+                                <th>Finals</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Mathematics</td>
+                                <td>45</td>
+                                <td>40</td>
+                                <td>35</td>
+                                <td>0</td>
+                                <td>75</td>
+                                <td>195</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Physics</td>
+                                <td>40</td>
+                                <td>38</td>
+                                <td>40</td>
+                                <td>0</td>
+                                <td>72</td>
+                                <td>190</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Chemistry</td>
+                                <td>30</td>
+                                <td>33</td>
+                                <td>40</td>
+                                <td>0</td>
+                                <td>68</td>
+                                <td>171</td>
+                            </tr>
+                            <!-- Add more rows as needed -->
+                        </tbody>
+                    </table>
+                </section>
+            </main>
+
+    <!-- Include the JS file for dynamic content interactions -->
+</body>
+</html>
