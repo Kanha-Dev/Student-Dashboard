@@ -10,6 +10,7 @@
     <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js"></script>
     <script type="module" src="./js/logout.js" defer></script>
+    <script src="../js/notice.js"></script>
 </head>
 <body>
     <div class="dashboard-container">
@@ -29,7 +30,7 @@
                 <a href="./academics.html" class="menu-item">Academics</a>
                 <a href="./notice.html" class="menu-item active">Notice</a>
                 <a href="./schedule.html" class="menu-item">Schedule</a>
-                <a href="#" class="menu-item" id="logout-button">Logout</a>
+                <a href="../index.html" class="menu-item" id="logout-button">Logout</a>
             </nav>
             
         </aside>
@@ -40,7 +41,7 @@
         <input type="text" class="search-bar" placeholder="Search...">
         <div class="header-right">
             <div class="notification-icon">
-                <img src="images/home/image3.png" alt="Notification Icon">
+                <img src="../images/home/image3.png" alt="Notification Icon">
             </div>
         </div>
     </div>
@@ -49,10 +50,10 @@
     <section class="welcome-banner">
         <div class="welcome-text">
             <p class="date">Today's Date</p>
-            <h1>Welcome back, Kanha!</h1>
+            <h1 id="nameheading">Welcome back, Kanha!</h1>
             <p>Stay updated with the latest notices!</p>
         </div>
-        <img src="images/personalDetails/5.png"" alt="Welcome Image" class="welcome-image">
+        <img src="../images/personalDetails/5.png"" alt="Welcome Image" class="welcome-image">
     </section>
 
     <!-- Notice Section -->

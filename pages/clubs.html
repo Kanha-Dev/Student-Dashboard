@@ -10,7 +10,7 @@
     <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js"></script>
     <script type="module" src="./js/logout.js" defer></script>
-    <script src="../js/academics.js"></script>
+    <script src="../js/club.js"></script>
 </head>
 <body>
     <div class="dashboard-container">
@@ -26,11 +26,11 @@
                 <a href="./personalDetails.html" class="menu-item">Personal Details</a>
                 <a href="./attendance.html" class="menu-item">Attendance</a>
                 <a href="pages/timetable.html" class="menu-item">TimeTable</a>
-                <a href="./clubs.html" class="menu-item">Clubs</a>
-                <a href="./academics.html" class="menu-item active">Academics</a>
+                <a href="./clubs.html" class="menu-item active">Clubs</a>
+                <a href="./academics.html" class="menu-item">Academics</a>
                 <a href="./notice.html" class="menu-item">Notice</a>
                 <a href="./schedule.html" class="menu-item">Schedule</a>
-                <a href="#" class="menu-item" id="logout-button">Logout</a>
+                <a href="../index.html" class="menu-item" id="logout-button">Logout</a>
             </nav>
         </aside>
 
@@ -40,10 +40,10 @@
             <section class="welcome-banner">
                 <div class="welcome-text">
                     <p class="date">Today's Date</p>
-                    <h1>Welcome back, Kanha!</h1>
+                    <h1 id="nameheading">Welcome back, Kanha!</h1>
                     <p>Always stay updated in your student portal</p>
                 </div>
-                <img src="images/personalDetails/3.png" alt="Welcome Image" class="welcome-image">
+                <img src="../images/personalDetails/3.png" alt="Welcome Image" class="welcome-image">
             </section>
 
             <!-- Club List (Moved below the welcome banner) -->

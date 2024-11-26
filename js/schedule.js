@@ -39,7 +39,7 @@ async function updateUserDetails() {
         // Update DOM elements
          // Update DOM elements only if they haven't been updated before
         const nameElement = document.getElementById("nameheading");
-        nameElement.textContent = "Welcome back, " + data.sname + "!" || "N/A";
+        nameElement.textContent = data.sname + " Today's Class Schedule!" || "N/A";
         document.querySelector('.user-name').textContent = data.sname || "N/A";
         document.querySelector('.user-reg').textContent = data.sid || "N/A";
 

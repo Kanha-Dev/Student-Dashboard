@@ -10,6 +10,7 @@
     <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js"></script>
     <script type="module" src="./js/logout.js" defer></script>
+    <script src="../js/schedule.js"></script>
 </head>
 <body>
     <div class="dashboard-container">
@@ -29,7 +30,7 @@
                 <a href="./academics.html" class="menu-item">Academics</a>
                 <a href="./notice.html" class="menu-item">Notice</a>
                 <a href="./schedule.html" class="menu-item active">Schedule</a>
-                <a href="#" class="menu-item" id="logout-button">Logout</a>
+                <a href="../index.html" class="menu-item" id="logout-button">Logout</a>
             </nav>
             
         </aside>
@@ -48,7 +49,7 @@
     <!-- Welcome Banner -->
     <section class="welcome-banner">
         <div class="welcome-text">
-            <h1>Today's Class Schedule</h1>
+            <h1 id="nameheading">Today's Class Schedule</h1>
             <p>Stay updated with your class schedule for the day!</p>
             <p class="today-date" id="today-date"></p>
         </div>
