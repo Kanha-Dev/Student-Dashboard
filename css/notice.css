@@ -1,0 +1,96 @@
+/* notice.css */
+
+/* Importing the universal styles */
+@import url('./universal.css');
+
+/* Notice Section */
+.notice-section {
+    margin-top: 30px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.notice-categories {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    justify-content: flex-start;
+}
+
+.category-button {
+    padding: 10px 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    font-size: 1rem;
+    color: #555;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.category-button.active {
+    background-color: #ff9900;
+    color: white;
+}
+
+.category-button:hover {
+    background-color: #ffcc80;
+    color: #333;
+}
+
+.notice-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.notice-item {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.notice-item:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.notice-title {
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.notice-date {
+    font-size: 0.9rem;
+    color: #999;
+    margin-bottom: 10px;
+}
+
+.notice-description {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.see-more {
+    color: #ff9900;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.see-more:hover {
+    text-decoration: underline;
+}
+
+/* Hide non-active categories initially */
+.notice-item {
+    display: none;
+}
+
+/* Display active category items */
+.notice-item.general, .notice-item.exam, .notice-item.events, .notice-item.others {
+    display: block;
+}

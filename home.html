@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="./css/home.css"> <!-- Link to your CSS file -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js"></script>
+    <script type="module" src="./js/logout.js" defer></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="profile-section">
+                <img src="./images/home/image2.png" alt="User Profile" class="profile-icon">
+                <p class="user-name">Kanha Gupta</p>
+                <p class="user-reg">229303421</p>
+            </div>
+            <nav class="menu">
+                <a href="#" class="menu-item active" onclick="loadPage('dashboard')">Dashboard</a>
+                <a href="#" class="menu-item" onclick="loadPage('personalDetails')">Personal Details</a>
+                <a href="#" class="menu-item" onclick="loadPage('attendance')">Attendance</a>
+                <a href="#" class="menu-item" onclick="loadPage('timetable')">TimeTable</a>
+                <a href="#" class="menu-item" onclick="loadPage('clubs')">Clubs</a>
+                <a href="#" class="menu-item" onclick="loadPage('academics')">Academics</a>
+                <a href="#" class="menu-item" onclick="loadPage('notice')">Notice</a>
+                <a href="#" class="menu-item" onclick="loadPage('schedule')">Schedule</a>
+                <a href="#" class="menu-item" id="logout-button">Logout</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Default content will load dynamically here -->
+        </main>
+    </div>
+
+
+
+
+    <!-- Include the JS file for dynamic content interactions -->
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

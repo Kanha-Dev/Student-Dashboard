@@ -1,0 +1,273 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background-color: #f3f4f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden; /* Prevent overflow */
+    position: relative; /* For the background bubbles */
+}
+
+/* Background decorations */
+body::before {
+    content: "";
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(255, 204, 128, 0.7), rgba(255, 204, 128, 0));
+    border-radius: 50%;
+    z-index: 0;
+}
+
+body::after {
+    content: "";
+    position: absolute;
+    bottom: -100px;
+    left: -100px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(255, 165, 0, 0.7), rgba(255, 165, 0, 0));
+    border-radius: 50%;
+    z-index: 0;
+}
+
+/* Container */
+.dashboard-container {
+    display: flex;
+    width: 95vw;
+    height: 95vh;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative; /* To ensure content is above the background */
+    z-index: 1; /* Place content above the background bubbles */
+}
+
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.search-bar {
+    flex: 1; /* Allow the search bar to stretch */
+    max-width: calc(100% - 60px); /* Adjust the max width considering the space for the notification icon */
+    margin-right: 20px;
+    padding: 10px;
+    border-radius: 30px;
+    border: 1px solid #ccc;
+    outline: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s;
+}
+
+.search-bar:focus {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border-color: #ff9900;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Space between elements */
+}
+
+.notification-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #fff;
+    padding: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Welcome Banner */
+.welcome-banner {
+    padding: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, #ff9900, #ffcc80); /* Gradient background */
+}
+
+.welcome-text h1 {
+    font-size: 2.5rem;
+}
+
+.welcome-text p {
+    margin: 0;
+}
+
+/* Welcome Image Circle Frame */
+.welcome-image {
+    width: 213.75px;
+    height: 213.75px; /* Ensure the height matches the width for a perfect circle */
+    border-radius: 50%; /* Makes the image circular */
+    border: 5px solid #fff; /* White border around the image */
+    object-fit: cover; /* Ensures the image covers the circle area without distortion */
+}
+
+/* Main Sections */
+.main-sections {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Section Headings */
+.section-heading {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* Today's Classes */
+.classes-section {
+    background-color: #ffcc80;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-height: 300px; /* Adjusted height to fit better */
+}
+
+.classes-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Limit to 3 columns */
+    gap: 15px;
+}
+
+.classes-content .class-item {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-weight: 500;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Today's News */
+.news-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Hide scrollbar for news section */
+.news-section {
+    overflow-x: scroll; /* Keep the horizontal scroll functionality */
+    scrollbar-width: none; /* For Firefox */
+}
+
+.news-section::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and Opera */
+}
+
+.news-content {
+    display: flex;
+    gap: 20px;
+}
+
+.news-item {
+    flex: 0 0 calc(33.33% - 20px); /* Ensure 3 items per row, adjusting for gap */
+    height: 150px; /* Shorter height for rectangle shape */
+    background-color: #ffcc80; /* Yellow background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    font-weight: 500;
+    color: #333;
+}
+
+/* Daily Notice Section */
+.daily-notice-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px; /* Add some space between the header and the notice section */
+}
+
+.daily-notice {
+    flex: 1; /* Make the daily notice take the remaining space */
+    max-height: 385px; /* Increased height by 10% */
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+
+.notice-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.notice-item {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    font-weight: 600;
+    color: #555;
+}
+
+.notice-title {
+    font-weight: 600;
+    color: #333;
+}
+
+.notice-description {
+    color: #555;
+}
+
+.see-more {
+    margin-top: 10px;
+    color: #ff9900;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.see-more:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .welcome-banner {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .welcome-banner .welcome-image {
+        margin-top: 20px;
+    }
+
+    .header {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .search-bar {
+        width: 100%;
+    }
+}

@@ -1,0 +1,107 @@
+/* schedule.css */
+
+/* Importing the generic styles */
+@import url('./universal.css');
+
+/* Specific styles for the schedule page */
+.schedule-section {
+    padding: 20px;
+}
+
+.classes-section {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.classes-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.class-card {
+    background-color: #ffcc80;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.class-card:hover {
+    background-color: #e68a00;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+}
+
+.class-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.class-name {
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.course-type {
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 20px;
+    color: #fff;
+    font-size: 0.9rem;
+}
+
+.theory {
+    background-color: #66cc66;
+}
+
+.lab {
+    background-color: #ff9966;
+}
+
+.class-details {
+    margin-top: 10px;
+}
+
+.class-time,
+.class-location {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.class-time img,
+.class-location img {
+    width: 16px;
+    margin-right: 8px;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .class-card {
+        padding: 10px;
+    }
+
+    .class-name {
+        font-size: 1rem;
+    }
+
+    .course-type {
+        font-size: 0.8rem;
+    }
+}
+
+/* Styling for the date */
+.today-date {
+    font-size: 1.1rem;
+    color: #333;
+    margin-top: 5px;
+}

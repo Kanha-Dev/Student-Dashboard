@@ -1,0 +1,93 @@
+<!-- Main Content -->
+<main class="main-content">
+    <!-- Header -->
+    <div class="header">
+        <input type="text" class="search-bar" placeholder="Search...">
+        <div class="header-right">
+            <div class="notification-icon">
+                <img src="images/home/image3.png" alt="Notification Icon">
+            </div>
+        </div>
+    </div>
+
+    <!-- Welcome Banner -->
+    <section class="welcome-banner">
+        <div class="welcome-text">
+            <p class="date">Today's Date</p>
+            <h1>Welcome back, Kanha!</h1>
+            <p>Stay updated with the latest notices!</p>
+        </div>
+        <img src="images/personalDetails/5.png"" alt="Welcome Image" class="welcome-image">
+    </section>
+
+    <!-- Notice Section -->
+    <section class="notice-section">
+        <h2 class="section-heading">Latest Notices</h2>
+
+        <!-- Notice Categories -->
+        <div class="notice-categories">
+            <button class="category-button active" data-category="general">General</button>
+            <button class="category-button" data-category="exam">Exam</button>
+            <button class="category-button" data-category="events">Events</button>
+            <button class="category-button" data-category="others">Others</button>
+        </div>
+
+        <!-- Notice List -->
+        <div class="notice-list">
+            <div class="notice-item general">
+                <p class="notice-title">Prelim Exam Schedule</p>
+                <p class="notice-date">Posted on: 2024-11-18</p>
+                <p class="notice-description">The preliminary exam schedule is now available. Check the full schedule for details.</p>
+                <a href="#" class="see-more">See more</a>
+            </div>
+            <div class="notice-item exam">
+                <p class="notice-title">Annual Sports Day</p>
+                <p class="notice-date">Posted on: 2024-11-17</p>
+                <p class="notice-description">Join us for the annual sports day! Don’t miss out on the exciting events!</p>
+                <a href="#" class="see-more">See more</a>
+            </div>
+            <div class="notice-item events">
+                <p class="notice-title">Faculty Meeting</p>
+                <p class="notice-date">Posted on: 2024-11-16</p>
+                <p class="notice-description">There will be a faculty meeting on Tuesday at 3:00 PM in the conference hall.</p>
+                <a href="#" class="see-more">See more</a>
+            </div>
+            <div class="notice-item others">
+                <p class="notice-title">Holiday Notice</p>
+                <p class="notice-date">Posted on: 2024-11-15</p>
+                <p class="notice-description">The campus will be closed on Friday for the national holiday.</p>
+                <a href="#" class="see-more">See more</a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<script>
+    // JavaScript to filter the notices based on categories
+    document.addEventListener("DOMContentLoaded", function () {
+        const categoryButtons = document.querySelectorAll('.category-button');
+        const noticeItems = document.querySelectorAll('.notice-item');
+
+        categoryButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                // Remove active class from all buttons
+                categoryButtons.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to clicked button
+                this.classList.add('active');
+
+                // Get the category to show
+                const category = this.getAttribute('data-category');
+
+                // Show the corresponding notices and hide others
+                noticeItems.forEach(item => {
+                    if (item.classList.contains(category) || category === 'all') {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+    });
+</script>

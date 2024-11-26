@@ -1,0 +1,289 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f0f0f0, #d4d4d4); /* Light gradient background */
+  overflow: hidden;
+  position: relative; /* For background elements */
+}
+
+/* Background decorations */
+body::before {
+  content: "";
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(255, 204, 128, 0.7), rgba(255, 204, 128, 0));
+  border-radius: 50%;
+  z-index: 0;
+}
+
+body::after {
+  content: "";
+  position: absolute;
+  bottom: -100px;
+  left: -100px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(255, 165, 0, 0.7), rgba(255, 165, 0, 0));
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.login-page {
+  display: flex;
+  width: 90%; /* Give some space around the edges */
+  max-width: 1200px;
+  height: 80vh; /* Reduce height to emphasize the bubble effect */
+  border-radius: 30px; /* Rounded corners for the entire container */
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); /* Enhanced shadow for a more modern look */
+  overflow: hidden;
+  background-color: white;
+  z-index: 1; /* Above the background elements */
+}
+
+.login-section {
+  flex: 1;
+  background-color: #1c1d21;
+  color: #fff;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  border-top-left-radius: 30px; /* Rounded corners for the left pane */
+  border-bottom-left-radius: 30px; /* Rounded corners for the left pane */
+  z-index: 1; /* Ensure it is above the shadow */
+}
+
+.login-header {
+  margin-bottom: 20px;
+}
+
+.login-header h2 {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.login-header p {
+  font-size: 16px;
+  color: #bbb;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-bottom: 1px solid #555;
+  background-color: transparent;
+  color: #fff;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s; /* Smooth transition for the border */
+}
+
+.form-group input:focus {
+  border-bottom: 1px solid #ff9900; /* Change border color on focus */
+}
+
+.password-wrapper {
+  position: relative;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.forgot-password-link {
+  text-decoration: none;
+  color: #ff9900;
+  font-size: 14px;
+  margin-bottom: 30px;
+  display: inline-block;
+}
+
+.login-button {
+  background-color: #ff9900;
+  color: #fff;
+  border: none;
+  padding: 15px;
+  border-radius: 25px; /* Rounded button for a modern look */
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 20px;
+  transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transition for hover effects */
+}
+
+.login-button:hover {
+  background-color: #e68a00; /* Darker shade on hover */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Elevated shadow on hover */
+}
+
+.sign-up-link {
+  margin-top: 30px;
+}
+
+.sign-up-link a {
+  color: #ff9900;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.graphics-container {
+  flex: 1;
+  background-color: #ffcc80; /* Reverting to previous background color */
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top-right-radius: 30px; /* Rounded corners for the right pane */
+  border-bottom-right-radius: 30px; /* Rounded corners for the right pane */
+}
+
+.graphics-frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.graphics {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* Graphics behind everything */
+}
+
+.graphic {
+  position: absolute;
+  opacity: 0.8;
+}
+
+/* Enlarged graphics with updated positions */
+
+/* Very big graphic at bottom right */
+.graphic-bottom-right-very-big {
+  bottom: 0;
+  right: 0;
+  width: 300px;
+  height: 300px;
+  transform: translate(50%, 20%);
+}
+
+/* Medium big graphic on the left part */
+.graphic-left-medium-big {
+  top: 50%;
+  left: 0;
+  transform: translate(-30%, -50%);
+  width: 200px;
+  height: 200px;
+}
+
+/* Medium graphic on the top part */
+.graphic-top-medium {
+  top: 0; /* Align to the top of the right pane */
+  left: 30%;
+  transform: translate(-50%, 0); /* Remove vertical translation to touch the top */
+  width: 150px;
+  height: 150px;
+}
+
+/* Medium graphic on top right */
+.graphic-top-right-medium {
+  top: 0; /* Align to the top of the right pane */
+  right: 10%;
+  width: 150px;
+  height: 150px;
+  transform: translate(30%, 0); /* Remove vertical translation to touch the top */
+}
+
+.welcome-message {
+  position: absolute;
+  top: 15%; /* Align to the top with 15% padding */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Center alignment horizontally */
+  width: 100%; /* Span across the right pane */
+  padding: 0 10%; /* Add some horizontal padding */
+  z-index: 2; /* Above graphics, below illustration */
+  text-align: center; /* Center text alignment */
+}
+
+.welcome-message h1 {
+  font-size: 3vw; /* Responsive font size */
+  font-weight: 700;
+  color: #fff; /* White color for the welcome text */
+  margin: 0;
+}
+
+.welcome-message p {
+  font-size: 1.2vw; /* Responsive font size */
+  color: #fff; /* White color for the subtext */
+  margin-top: 10px;
+}
+
+.main-illustration {
+  position: absolute;
+  bottom: 10%; /* Set bottom padding to 10% */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%) scale(1.2); /* Center horizontally and scale */
+  z-index: 3; /* Above graphics and welcome message */
+  max-width: 80%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .login-page {
+      flex-direction: column;
+      border-radius: 30px; /* Rounded corners remain for mobile view */
+  }
+
+  .login-section, .graphics-container {
+      width: 100%;
+      height: 50%;
+      border-radius: 0; /* Remove inner border-radius for a cleaner look */
+  }
+
+  .welcome-message h1 {
+      font-size: 5vw; /* Adjust for smaller screens */
+  }
+
+  .welcome-message p {
+      font-size: 3vw; /* Adjust for smaller screens */
+  }
+
+  .main-illustration {
+      max-width: 80%;
+      right: 0;
+      transform: translateX(-50%) scale(1); /* Reset the scale for smaller screens */
+  }
+
+  .graphic {
+      max-width: 80px;
+      max-height: 80px;
+  }
+}

@@ -1,0 +1,166 @@
+<!-- Main Content -->
+<main class="main-content">
+    <!-- Header -->
+    <div class="header">
+        <input type="text" class="search-bar" placeholder="Search...">
+        <div class="header-right">
+            <div class="notification-icon">
+                <img src="images/home/image3.png" alt="Notification Icon">
+            </div>
+        </div>
+    </div>
+
+    <!-- Welcome Banner -->
+    <section class="welcome-banner">
+        <div class="welcome-text">
+            <p class="date">Today's Date</p>
+            <h1>Welcome back, Kanha!</h1>
+            <p>Always stay updated in your student portal</p>
+        </div>
+        <img src="images/personalDetails/3.png"" alt="Welcome Image" class="welcome-image">
+    </section>
+
+    <!-- Add your other content here -->
+</main>
+
+    <!-- Club List -->
+    <section class="club-section">
+        <h2 class="section-heading">Available Clubs</h2>
+        <div class="club-table">
+            <!-- Club Names in Rounded Rectangles -->
+            <div class="club-item" data-club="1">Music Club</div>
+            <div class="club-item" data-club="2">Drama Club</div>
+            <div class="club-item" data-club="3">Science Club</div>
+            <div class="club-item" data-club="4">Literature Club</div>
+            <div class="club-item" data-club="5">Art Club</div>
+            <div class="club-item" data-club="6">Tech Club</div>
+            <div class="club-item" data-club="7">Sports Club</div>
+            <div class="club-item" data-club="8">Debate Club</div>
+            <div class="club-item" data-club="9">Photography Club</div>
+        </div>
+    </section>
+
+    <!-- Modal Dialog for Club Details -->
+    <div id="club-modal" class="club-modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Club Details</h2>
+            <table class="club-details">
+                <tr>
+                    <th>Club Name</th>
+                    <td id="club-name"></td>
+                </tr>
+                <tr>
+                    <th>Members</th>
+                    <td id="club-members"></td>
+                </tr>
+                <tr>
+                    <th>Activities</th>
+                    <td id="club-activities"></td>
+                </tr>
+                <tr>
+                    <th>Upcoming Events</th>
+                    <td id="club-events"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</main>
+
+<script>
+    // Add event listeners to club items
+    const clubItems = document.querySelectorAll('.club-item');
+    const modal = document.getElementById('club-modal');
+    const closeBtn = document.querySelector('.close');
+    const clubName = document.getElementById('club-name');
+    const clubMembers = document.getElementById('club-members');
+    const clubActivities = document.getElementById('club-activities');
+    const clubEvents = document.getElementById('club-events');
+
+    // Sample data for clubs
+    const clubDetails = {
+        1: {
+            name: "Music Club",
+            members: "50 members",
+            activities: "Monthly concerts, weekly practice sessions",
+            events: "Annual Music Fest"
+        },
+        2: {
+            name: "Drama Club",
+            members: "35 members",
+            activities: "Theater performances, acting workshops",
+            events: "Annual Drama Play"
+        },
+        3: {
+            name: "Science Club",
+            members: "40 members",
+            activities: "Science exhibitions, experiments",
+            events: "Science Week"
+        },
+        4: {
+            name: "Literature Club",
+            members: "30 members",
+            activities: "Poetry reading, book club meetings",
+            events: "Literature Fest"
+        },
+        5: {
+            name: "Art Club",
+            members: "45 members",
+            activities: "Art exhibitions, painting classes",
+            events: "Art Gala"
+        },
+        6: {
+            name: "Tech Club",
+            members: "60 members",
+            activities: "Hackathons, coding workshops",
+            events: "Tech Expo"
+        },
+        7: {
+            name: "Sports Club",
+            members: "50 members",
+            activities: "Football, Basketball, and Athletics",
+            events: "Annual Sports Day"
+        },
+        8: {
+            name: "Debate Club",
+            members: "25 members",
+            activities: "Debate competitions, public speaking",
+            events: "Annual Debate Tournament"
+        },
+        9: {
+            name: "Photography Club",
+            members: "40 members",
+            activities: "Photography workshops, photo shoots",
+            events: "Photo Exhibition"
+        }
+    };
+
+    // Show modal with club details
+    clubItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const clubId = item.getAttribute('data-club');
+            const clubData = clubDetails[clubId];
+
+            // Update modal content
+            clubName.textContent = clubData.name;
+            clubMembers.textContent = clubData.members;
+            clubActivities.textContent = clubData.activities;
+            clubEvents.textContent = clubData.events;
+
+            // Show modal
+            modal.style.display = 'flex';
+        });
+    });
+
+    // Close modal when clicking on the close button
+    closeBtn.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+
+    // Close modal when clicking outside the modal content
+    window.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+</script>

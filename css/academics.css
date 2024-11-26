@@ -1,0 +1,80 @@
+/* marks.css */
+
+/* Importing the generic styles */
+@import url('./universal.css');
+
+/* Semester Section */
+.semester-selection {
+    margin: 20px 0;
+    padding: 10px;
+}
+
+.semester-dropdown {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.semester-dropdown-select {
+    padding: 8px;
+    font-size: 1rem;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+}
+
+.search-button {
+    padding: 10px 20px;
+    background-color: #ff9900;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+    background-color: #e68a00;
+}
+
+/* Marks Table */
+.marks-table-section {
+    margin-top: 30px;
+}
+
+.marks-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.marks-table th, .marks-table td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.marks-table th {
+    background-color: #ffcc80;
+    color: #333;
+    font-weight: bold;
+}
+
+.marks-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.marks-table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.marks-table td {
+    font-size: 1rem;
+    color: #555;
+}
+
+.marks-table td:first-child {
+    font-weight: bold;
+}

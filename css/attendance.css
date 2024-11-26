@@ -1,0 +1,185 @@
+/* attendance.css */
+
+/* Importing the generic styles */
+@import url('./universal.css');
+
+/* Accordion styles */
+.accordion {
+    border-radius: 20px; /* Rounded corners for the entire accordion */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Ensures content is contained */
+}
+
+/* Accordion item styles */
+.accordion-item {
+    margin-bottom: 10px;
+    border-radius: 10px; /* Rounded corners for each accordion item */
+    background-color: #fff; /* White background for items */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow */
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+/* Accordion header styles */
+.accordion-header {
+    width: 100%;
+    background-color: #ff9900; /* Theme color */
+    color: #fff;
+    padding: 15px;
+    text-align: left;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease, box-shadow 0.3s;
+    border-radius: 10px 10px 0 0; /* Rounded top corners */
+}
+
+/* Hover effect for the accordion header */
+.accordion-header:hover {
+    background-color: #e68a00; /* Darker on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow on hover */
+}
+
+/* Accordion content styles */
+.accordion-content {
+    background-color: #fff;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s ease-out;
+    padding: 0 15px;
+    border-top: 1px solid transparent; /* Transparent strip below */
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Attendance info styles (Total, Present, Absent) */
+.attendance-info {
+    width: 48%; /* Adjust the width to align with the chart */
+    font-size: 1rem;
+}
+
+.attendance-info p {
+    margin: 10px 0;
+}
+
+.pie-chart {
+    width: 48%; /* Adjust the width to align with the info section */
+}
+
+/* Pie chart canvas styling */
+canvas {
+    width: 100% !important;
+    height: auto !important;
+}
+
+/* Pane 1 and 2 styles */
+.main-sections {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+/* Styling for the left pane */
+.pane1 {
+    width: 65%; /* Adjust width for the left pane */
+}
+
+/* Styling for the right pane */
+.pane2 {
+    width: 30%; /* Adjust width for the right pane */
+    background-color: #fff; /* White background */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px;
+}
+
+/* Daily Notice Header */
+.daily-notice-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent; /* Make background transparent */
+    color: #333; /* Ensure text is visible */
+}
+
+.daily-notice-header h2 {
+    margin: 0;
+}
+
+.see-all {
+    color: #ff9900;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* Daily Notice Section */
+.daily-notice .notice-content {
+    margin-top: 10px;
+}
+
+.notice-item {
+    background-color: #fff;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.notice-title {
+    font-weight: 600;
+    margin: 0;
+}
+
+.notice-description {
+    color: #555;
+    margin: 10px 0;
+}
+
+.notice-item .see-more {
+    text-decoration: none;
+    color: #ff9900;
+    font-weight: 600;
+}
+
+/* Subjects heading styling */
+.section-heading {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+    margin: 20px 0; /* Space between heading and content */
+    text-align: center; /* Center align the heading */
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .accordion-header {
+        font-size: 1rem; /* Slightly smaller font on mobile */
+        padding: 10px;
+    }
+
+    .accordion-content p {
+        font-size: 0.9rem; /* Adjust text size for readability */
+    }
+
+    .section-heading {
+        font-size: 1.25rem; /* Adjust heading size on mobile */
+        margin: 15px 0; /* Reduced space */
+    }
+
+    .attendance-info, .pie-chart {
+        width: 100%; /* Full width for smaller screens */
+        margin-bottom: 15px;
+    }
+
+    .main-sections {
+        flex-direction: column; /* Stack the sections vertically on small screens */
+        align-items: center; /* Center content */
+    }
+
+    .pane1, .pane2 {
+        width: 100%; /* Full width for each pane */
+        margin-bottom: 20px; /* Add margin for spacing */
+    }
+}
