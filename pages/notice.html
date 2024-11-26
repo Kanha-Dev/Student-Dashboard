@@ -32,103 +32,132 @@
                 <a href="./schedule.html" class="menu-item">Schedule</a>
                 <a href="../index.html" class="menu-item" id="logout-button">Logout</a>
             </nav>
-            
         </aside>
-<!-- Main Content -->
-<main class="main-content">
-    <!-- Header -->
-    <div class="header">
-        <input type="text" class="search-bar" placeholder="Search...">
-        <div class="header-right">
-            <div class="notification-icon">
-                <img src="../images/home/image3.png" alt="Notification Icon">
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <div class="header">
+                <input type="text" class="search-bar" placeholder="Search...">
+                <div class="header-right">
+                    <div class="notification-icon">
+                        <img src="../images/home/image3.png" alt="Notification Icon">
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
 
-    <!-- Welcome Banner -->
-    <section class="welcome-banner">
-        <div class="welcome-text">
-            <p class="date">Today's Date</p>
-            <h1 id="nameheading">Welcome back, Kanha!</h1>
-            <p>Stay updated with the latest notices!</p>
-        </div>
-        <img src="../images/personalDetails/5.png"" alt="Welcome Image" class="welcome-image">
-    </section>
+            <!-- Welcome Banner -->
+            <section class="welcome-banner">
+                <div class="welcome-text">
+                    <p class="date">Today's Date</p>
+                    <h1 id="nameheading">Welcome back, Kanha!</h1>
+                    <p>Stay updated with the latest notices!</p>
+                </div>
+                <img src="../images/personalDetails/5.png"" alt="Welcome Image" class="welcome-image">
+            </section>
 
-    <!-- Notice Section -->
-    <section class="notice-section">
-        <h2 class="section-heading">Latest Notices</h2>
+            <!-- Notice Section -->
+            <section class="notice-section">
+                <h2 class="section-heading">Latest Notices</h2>
 
-        <!-- Notice Categories -->
-        <div class="notice-categories">
-            <button class="category-button active" data-category="general">General</button>
-            <button class="category-button" data-category="exam">Exam</button>
-            <button class="category-button" data-category="events">Events</button>
-            <button class="category-button" data-category="others">Others</button>
-        </div>
+                <!-- Notice Categories -->
+                <div class="notice-categories">
+                    <button class="category-button active" data-category="general">General</button>
+                    <button class="category-button" data-category="exam">Exam</button>
+                    <button class="category-button" data-category="events">Events</button>
+                    <button class="category-button" data-category="others">Others</button>
+                </div>
 
-        <!-- Notice List -->
-        <div class="notice-list">
-            <div class="notice-item general">
-                <p class="notice-title">Prelim Exam Schedule</p>
-                <p class="notice-date">Posted on: 2024-11-18</p>
-                <p class="notice-description">The preliminary exam schedule is now available. Check the full schedule for details.</p>
-                <a href="#" class="see-more">See more</a>
-            </div>
-            <div class="notice-item exam">
-                <p class="notice-title">Annual Sports Day</p>
-                <p class="notice-date">Posted on: 2024-11-17</p>
-                <p class="notice-description">Join us for the annual sports day! Don’t miss out on the exciting events!</p>
-                <a href="#" class="see-more">See more</a>
-            </div>
-            <div class="notice-item events">
-                <p class="notice-title">Faculty Meeting</p>
-                <p class="notice-date">Posted on: 2024-11-16</p>
-                <p class="notice-description">There will be a faculty meeting on Tuesday at 3:00 PM in the conference hall.</p>
-                <a href="#" class="see-more">See more</a>
-            </div>
-            <div class="notice-item others">
-                <p class="notice-title">Holiday Notice</p>
-                <p class="notice-date">Posted on: 2024-11-15</p>
-                <p class="notice-description">The campus will be closed on Friday for the national holiday.</p>
-                <a href="#" class="see-more">See more</a>
-            </div>
-        </div>
-    </section>
-</main>
+                <!-- Notice List -->
+                <div class="notice-list">
+                    <div class="notice-item general">
+                        <p class="notice-title">Prelim Exam Schedule</p>
+                        <p class="notice-date">Posted on: 2024-11-18</p>
+                        <p class="notice-description">The preliminary exam schedule is now available. Check the full schedule for details.</p>
+                        <div class="notice-extra-info">
+                            <p>Additional details about the prelim exam schedule, including exam timings, subjects, and other important details...</p>
+                        </div>
+                        <a href="javascript:void(0);" class="see-more">See more</a>
+                    </div>
+                    <div class="notice-item exam">
+                        <p class="notice-title">Annual Sports Day</p>
+                        <p class="notice-date">Posted on: 2024-11-17</p>
+                        <p class="notice-description">Join us for the annual sports day! Don’t miss out on the exciting events!</p>
+                        <div class="notice-extra-info">
+                            <p>Detailed schedule for the sports day, locations for different events, registration instructions...</p>
+                        </div>
+                        <a href="javascript:void(0);" class="see-more">See more</a>
+                    </div>
+                    <div class="notice-item events">
+                        <p class="notice-title">Faculty Meeting</p>
+                        <p class="notice-date">Posted on: 2024-11-16</p>
+                        <p class="notice-description">There will be a faculty meeting on Tuesday at 3:00 PM in the conference hall.</p>
+                        <div class="notice-extra-info">
+                            <p>Additional details about the faculty meeting, agenda, and other points of discussion...</p>
+                        </div>
+                        <a href="javascript:void(0);" class="see-more">See more</a>
+                    </div>
+                    <div class="notice-item others">
+                        <p class="notice-title">Holiday Notice</p>
+                        <p class="notice-date">Posted on: 2024-11-15</p>
+                        <p class="notice-description">The campus will be closed on Friday for the national holiday.</p>
+                        <div class="notice-extra-info">
+                            <p>Details about the holiday and related events that may occur on campus...</p>
+                        </div>
+                        <a href="javascript:void(0);" class="see-more">See more</a>
+                    </div>
+                </div>
+            </section>
+        </main>
 
-<script>
-    // JavaScript to filter the notices based on categories
-    document.addEventListener("DOMContentLoaded", function () {
-        const categoryButtons = document.querySelectorAll('.category-button');
-        const noticeItems = document.querySelectorAll('.notice-item');
+        <script>
+            // JavaScript to filter the notices based on categories
+            document.addEventListener("DOMContentLoaded", function () {
+                const categoryButtons = document.querySelectorAll('.category-button');
+                const noticeItems = document.querySelectorAll('.notice-item');
 
-        categoryButtons.forEach(button => {
-            button.addEventListener('click', function () {
-                // Remove active class from all buttons
-                categoryButtons.forEach(btn => btn.classList.remove('active'));
-                
-                // Add active class to clicked button
-                this.classList.add('active');
+                categoryButtons.forEach(button => {
+                    button.addEventListener('click', function () {
+                        // Remove active class from all buttons
+                        categoryButtons.forEach(btn => btn.classList.remove('active'));
 
-                // Get the category to show
-                const category = this.getAttribute('data-category');
+                        // Add active class to clicked button
+                        this.classList.add('active');
 
-                // Show the corresponding notices and hide others
-                noticeItems.forEach(item => {
-                    if (item.classList.contains(category) || category === 'all') {
-                        item.style.display = 'block';
-                    } else {
-                        item.style.display = 'none';
-                    }
+                        // Get the category to show
+                        const category = this.getAttribute('data-category');
+
+                        // Show the corresponding notices and hide others
+                        noticeItems.forEach(item => {
+                            if (item.classList.contains(category) || category === 'all') {
+                                item.style.display = 'block';
+                            } else {
+                                item.style.display = 'none';
+                            }
+                        });
+                    });
+                });
+
+                // JavaScript to toggle the visibility of extra info
+                const seeMoreButtons = document.querySelectorAll('.see-more');
+                seeMoreButtons.forEach(button => {
+                    button.addEventListener('click', function () {
+                        const noticeItem = this.closest('.notice-item');
+                        const extraInfo = noticeItem.querySelector('.notice-extra-info');
+
+                        // Toggle the visibility of extra info
+                        if (extraInfo.style.display === 'none' || extraInfo.style.display === '') {
+                            extraInfo.style.display = 'block';
+                            this.textContent = 'See less';  // Change button text to "See less"
+                        } else {
+                            extraInfo.style.display = 'none';
+                            this.textContent = 'See more';  // Change button text back to "See more"
+                        }
+                    });
                 });
             });
-        });
-    });
-</script>
+        </script>
 
-    <!-- Include the JS file for dynamic content interactions -->
-    <script src="js/dashboard.js"></script>
-</body>
+        <!-- Include the JS file for dynamic content interactions -->
+        <script src="js/dashboard.js"></script>
+    </body>
 </html>
