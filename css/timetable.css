@@ -1,0 +1,84 @@
+/* schedule.css */
+
+/* Importing the generic styles */
+@import url('./universal.css');
+
+.timetable-container {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+}
+
+.timetable-header {
+    display: grid;
+    grid-template-columns: 1fr repeat(5, 2fr);
+    background-color: #f5f5f5;
+    font-weight: 600;
+    border-bottom: 1px solid #ccc;
+}
+
+.time-slot, .day-slot {
+    padding: 10px;
+    text-align: center;
+    border-right: 1px solid #ccc;
+}
+
+.day-slot:last-child {
+    border-right: none;
+}
+
+.timetable-body {
+    display: grid;
+    grid-template-rows: repeat(8, auto); /* Adjust based on the number of rows */
+}
+
+.time-row {
+    display: grid;
+    grid-template-columns: 1fr repeat(5, 2fr);
+    border-bottom: 1px solid #ccc;
+}
+
+.time-row:last-child {
+    border-bottom: none;
+}
+
+.class-slot, .time-slot {
+    padding: 15px;
+    text-align: center;
+    border-right: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.class-slot:last-child {
+    border-right: none;
+}
+
+.time-slot {
+    background-color: #f9f9f9;
+    font-weight: 500;
+}
+
+.class-slot {
+    background-color: #fff;
+    color: #555;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.class-slot:hover {
+    background-color: #ffcc80;;
+    color: #fff;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .timetable-header, .time-row {
+        grid-template-columns: 1fr repeat(5, 1fr);
+    }
+    .class-slot, .time-slot {
+        padding: 10px;
+        font-size: 12px;
+    }
+}

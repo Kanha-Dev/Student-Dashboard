@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="../css/home.css"> <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="../css/timetable.css"> <!-- Link to your Timetable CSS file -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js"></script>
+    <script type="module" src="./js/logout.js" defer></script>
+    <script src="../js/date.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="profile-section">
+                <img src="../images/home/image2.png" alt="User Profile" class="profile-icon">
+                <p class="user-name">Kanha Gupta</p>
+                <p class="user-reg">229303421</p>
+            </div>
+            <nav class="menu">
+                <a href="../home.html" class="menu-item">Dashboard</a>
+                <a href="./personalDetails.html" class="menu-item">Personal Details</a>
+                <a href="./attendance.html" class="menu-item">Attendance</a>
+                <a href="./timetable.html" class="menu-item active">TimeTable</a>
+                <a href="./clubs.html" class="menu-item">Clubs</a>
+                <a href="./academics.html" class="menu-item">Academics</a>
+                <a href="./notice.html" class="menu-item">Notice</a>
+                <a href="./schedule.html" class="menu-item">Schedule</a>
+                <a href="../index.html" class="menu-item" id="logout-button">Logout</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <div class="header">
+                <input type="text" class="search-bar" placeholder="Search...">
+                <div class="header-right">
+                    <div class="notification-icon">
+                        <img src="../images/home/image3.png" alt="Notification Icon">
+                    </div>
+                </div>
+            </div>
+
+        <!-- Welcome Banner -->
+        <section class="welcome-banner">
+            <div class="welcome-text">
+                <p class="date" id="today-date">Today's Date</p>
+                <h1 id="nameheading">Welcome back, Kanha!</h1>
+                <p>Always stay updated in your student portal</p>
+            </div>
+            <!-- Updated with circular frame class -->
+            <img src="../images/personalDetails/4.png" alt="Welcome Image" class="welcome-image">
+        </section>
+
+            <!-- Timetable Section -->
+            <section class="timetable-section">
+                <h2 class="section-heading">Class Timetable</h2>
+                <div class="timetable-container">
+                    <div class="timetable-header">
+                        <div class="time-slot">Time</div>
+                        <div class="day-slot">Monday</div>
+                        <div class="day-slot">Tuesday</div>
+                        <div class="day-slot">Wednesday</div>
+                        <div class="day-slot">Thursday</div>
+                        <div class="day-slot">Friday</div>
+                    </div>
+                    <div class="timetable-body">
+                        <div class="time-row">
+                            <div class="time-slot">9:00 - 10:00</div>
+                            <div class="class-slot">Math</div>
+                            <div class="class-slot">Physics</div>
+                            <div class="class-slot">Chemistry</div>
+                            <div class="class-slot">English</div>
+                            <div class="class-slot">History</div>
+                        </div>
+                        <div class="time-row">
+                            <div class="time-slot">10:00 - 11:00</div>
+                            <div class="class-slot">Biology</div>
+                            <div class="class-slot">Math</div>
+                            <div class="class-slot">Geography</div>
+                            <div class="class-slot">Computer</div>
+                            <div class="class-slot">PE</div>
+                        </div>
+                        <div class="time-row">
+                            <div class="time-slot">11:00 - 12:00</div>
+                            <div class="class-slot">Physics</div>
+                            <div class="class-slot">English</div>
+                            <div class="class-slot">History</div>
+                            <div class="class-slot">Math</div>
+                            <div class="class-slot">Chemistry</div>
+                        </div>
+                        <div class="time-row">
+                            <div class="time-slot">12:00 - 1:00</div>
+                            <div class="class-slot">Lunch</div>
+                            <div class="class-slot">Lunch</div>
+                            <div class="class-slot">Lunch</div>
+                            <div class="class-slot">Lunch</div>
+                            <div class="class-slot">Lunch</div>
+                        </div>
+                        <div class="time-row">
+                            <div class="time-slot">1:00 - 2:00</div>
+                            <div class="class-slot">Chemistry</div>
+                            <div class="class-slot">PE</div>
+                            <div class="class-slot">English</div>
+                            <div class="class-slot">Math</div>
+                            <div class="class-slot">Biology</div>
+                        </div>
+                        <div class="time-row">
+                            <div class="time-slot">2:00 - 3:00</div>
+                            <div class="class-slot">Geography</div>
+                            <div class="class-slot">Physics</div>
+                            <div class="class-slot">Computer</div>
+                            <div class="class-slot">History</div>
+                            <div class="class-slot">English</div>
+                        </div>
+                        <div class="time-row">
+                            <div class="time-slot">3:00 - 4:00</div>
+                            <div class="class-slot">Math</div>
+                            <div class="class-slot">Biology</div>
+                            <div class="class-slot">Chemistry</div>
+                            <div class="class-slot">Physics</div>
+                            <div class="class-slot">PE</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
