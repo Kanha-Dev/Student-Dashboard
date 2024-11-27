@@ -159,4 +159,92 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   });
-  
+// Function to fetch attendance data for a student and subject
+async function fetchAttendance(studentId, subjectId) {
+  const attendanceApiUrl = `http://localhost:3000/api/attendance/${studentId}/${subjectId}`;
+  const subjectApiUrl = `http://localhost:3000/api/subject/${subjectId}`;
+
+  try {
+    // Fetch attendance data
+    const attendanceResponse = await fetch(attendanceApiUrl);
+    if (!attendanceResponse.ok) {
+      throw new Error(`Failed to fetch attendance data! Status: ${attendanceResponse.status}`);
+    }
+    const attendanceData = await attendanceResponse.json();
+    const attendance = attendanceData.attendance;
+    const presentCount = attendance.present_count || 0;
+    const absentCount = attendance.absent_count || 0;
+    const totalClasses = presentCount + absentCount;
+    const percentage = totalClasses ? ((presentCount / totalClasses) * 100).toFixed(2) : "0.00";
+
+    // Fetch subject name
+    const subjectResponse = await fetch(subjectApiUrl);
+    if (!subjectResponse.ok) {
+      throw new Error(`Failed to fetch subject name! Status: ${subjectResponse.status}`);
+    }
+    const subjectData = await subjectResponse.json();
+    const subjectName = subjectData.subject_name;
+
+    console.log(`Attendance Data for Subject ID: ${subjectId}`);
+    console.log(attendanceData);
+    console.log(`Subject Name: ${subjectName}`);
+
+    // Render attendance data dynamically
+    const accordionContainer = document.querySelector('.accordion');
+    const accordionItem = `
+      <div class="accordion-item">
+        <details class="accordion-header">
+          <summary>
+            ${subjectId} : ${subjectName} <span class="accordion-icon">v</span>
+          </summary>
+          <div class="accordion-content">
+            <div class="attendance-info">
+              <p><strong>Total Classes:</strong> ${totalClasses}</p>
+              <p><strong>Classes Attended:</strong> ${presentCount}</p>
+              <p><strong>Classes Missed:</strong> ${absentCount}</p>
+              <p><strong>Attendance Percentage:</strong> ${percentage}%</p>
+            </div>
+            <div class="pie-chart">
+              <canvas id="attendanceChart${subjectId}"></canvas>
+            </div>
+          </div>
+        </details>
+      </div>
+    `;
+    accordionContainer.innerHTML += accordionItem;
+
+    // Wait for the DOM to update before rendering the chart
+    requestAnimationFrame(() => {
+      const ctx = document.getElementById(`attendanceChart${subjectId}`).getContext('2d');
+      new Chart(ctx, {
+        type: 'pie',
+        data: {
+          labels: ['Attended', 'Missed'],
+          datasets: [{
+            data: [presentCount, absentCount],
+            backgroundColor: ['#4caf50', '#f44336'],
+          }],
+        },
+        options: {
+          responsive: true,
+        },
+      });
+    });
+
+  } catch (error) {
+    console.error("Error:", error);
+  }
+}
+
+// Example: Fetch attendance for multiple subjects
+const studentId = "1"; // Replace with the actual student ID dynamically if required
+const subjectIds = ["2130", "2131", "2132"]; // Replace with actual subject IDs
+
+document.addEventListener("DOMContentLoaded", () => {
+  subjectIds.forEach(subjectId => fetchAttendance(studentId, subjectId));
+});
+
+
+
+// Initialize attendance display on page load
+window.addEventListener("DOMContentLoaded", initAttendance);
