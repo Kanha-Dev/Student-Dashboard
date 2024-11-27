@@ -241,9 +241,40 @@ const studentId = "1"; // Replace with the actual student ID dynamically if requ
 const subjectIds = ["2130", "2131", "2132"]; // Replace with actual subject IDs
 
 document.addEventListener("DOMContentLoaded", () => {
+  updateUserDetails();
   subjectIds.forEach(subjectId => fetchAttendance(studentId, subjectId));
 });
 
+
+// Replace with the actual registration number of the user (could be dynamically set)
+const regNumber = "arjun.mehta@example.com";
+
+// Function to fetch and update user details
+async function updateUserDetails() {
+    try {
+        const response = await fetch(`http://localhost:3000/api/student/${regNumber}`);
+        if (!response.ok) throw new Error("Failed to fetch student data");
+
+        const data = await response.json();
+
+        // Update DOM elements
+         // Update DOM elements only if they haven't been updated before
+        const nameElement = document.getElementById("nameheading");
+        nameElement.textContent = "Welcome back, " + data.sname + "!" || "N/A";
+        document.querySelector('.user-name').textContent = data.sname || "N/A";
+        document.querySelector('.user-reg').textContent = data.sid || "N/A";
+
+        // Store sid in local storage for use in other files
+        if (data.sid) {
+            localStorage.setItem('sid', data.sid);
+            console.log(`SID ${data.sid} stored in local storage.`);
+        } else {
+            console.warn("SID is missing in the response data.");
+        }
+    } catch (error) {
+        console.error("Error updating user details:", error);
+    }
+}
 
 
 // Initialize attendance display on page load
