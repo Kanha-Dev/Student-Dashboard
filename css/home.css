@@ -198,6 +198,8 @@ body::after {
 
 .welcome-text h1 {
     font-size: 2.5rem;
+    font-family: 500;
+    color: black;
 }
 
 .welcome-text p {
@@ -233,7 +235,7 @@ body::after {
 
 /* Toy's Classes */
 .classes-section {
-    background-color: #ffcc80;
+    background-color: #ffb13c;
     padding: 20px;
     border-radius: 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -278,16 +280,17 @@ body::after {
 .news-content {
     display: flex;
     gap: 20px;
+    
 }
 
 .news-item {
     flex: 0 0 calc(33.33% - 20px); /* Ensure 3 items per row, adjusting for gap */
-    height: 150px; /* Shorter height for rectangle shape */
-    background-color: #ffcc80; /* Yellow background */
+    height: 200px; /* Shorter height for rectangle shape */
+    background-color: #ffb648; /* Yellow background */
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-    font-weight: 500;
+    font-weight: 600;
     color: #333;
 }
 
