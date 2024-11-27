@@ -160,6 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 // Function to fetch attendance data for a student and subject
+// Function to fetch attendance data for a student and subject
 async function fetchAttendance(studentId, subjectId) {
   const attendanceApiUrl = `http://localhost:3000/api/attendance/${studentId}/${subjectId}`;
   const subjectApiUrl = `http://localhost:3000/api/subject/${subjectId}`;
@@ -244,6 +245,7 @@ document.addEventListener("DOMContentLoaded", () => {
   updateUserDetails();
   subjectIds.forEach(subjectId => fetchAttendance(studentId, subjectId));
 });
+
 
 
 // Replace with the actual registration number of the user (could be dynamically set)
