@@ -26,7 +26,8 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Replace with the actual registration number of the user (could be dynamically set)
-const regNumber = "arjun.mehta@example.com";
+// Retrieve the 'sid' from local storage
+const regNumber = localStorage.getItem('email');
 
 // Function to fetch and update user details
 async function updateUserDetails() {

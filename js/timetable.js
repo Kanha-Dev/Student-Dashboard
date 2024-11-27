@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', () => {
     // Sidebar Navigation Active State Toggle
     const menuItems = document.querySelectorAll('.menu-item');
@@ -37,7 +36,7 @@ async function updateUserDetails() {
 
       // Update DOM elements
        // Update DOM elements only if they haven't been updated before
-      const nameElement = document.getElementById("nameheading");
+      const nameElement = document.getElementById("name");
       nameElement.textContent = "Welcome back, " + data.sname + "!" || "N/A";
       document.querySelector('.user-name').textContent = data.sname || "N/A";
       document.querySelector('.user-reg').textContent = data.sid || "N/A";
@@ -45,9 +44,11 @@ async function updateUserDetails() {
       console.error("Error updating user details:", error);
   }
 }
-
-// Call the function when the page loads
-document.addEventListener('DOMContentLoaded', updateUserDetails);
+  
+  // Call the function with the appropriate student ID when the page loads
+  document.addEventListener("DOMContentLoaded", () => {
+    updateUserDetails();
+  });
 
 // Update active menu item
 function updateActiveMenu(activePage) {

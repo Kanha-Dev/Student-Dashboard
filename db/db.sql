@@ -451,3 +451,62 @@ INSERT INTO Period (pid, time, date, duration, subid) VALUES
 (25, '13:00:00', '2024-11-05', 60, 2314);
 
 SELECT * FROM Attendance;
+
+        SELECT 
+            p.pid,
+            s.subject_name AS subname,
+            p.time,
+            p.date
+        FROM 
+            RelationalTable_R3 r3
+        JOIN 
+            Subject s ON r3.subid = s.subid
+        JOIN 
+            RelationalTable_R4 r4 ON r3.aid = r4.aid
+        JOIN 
+            Period p ON r4.pid = p.pid
+        WHERE 
+            r3.sid = 1
+            AND p.date = '2024-11-01';
+            
+            
+SELECT 
+    COUNT(CASE WHEN a.present = TRUE THEN 1 END) AS present_count,
+    COUNT(CASE WHEN a.absent = TRUE THEN 1 END) AS absent_count
+FROM 
+    Student s
+JOIN 
+    RelationalTable_R3 r3 ON s.sid = r3.sid
+JOIN 
+    RelationalTable_R4 r4 ON r3.aid = r4.aid
+JOIN 
+    Period p ON r4.pid = p.pid
+JOIN 
+    Subject sub ON p.subid = sub.subid
+JOIN 
+    Attendance a ON r3.aid = a.aid
+WHERE 
+    s.sid = 1  -- Replace with the student ID
+    AND sub.subid = 2131;  -- Replace with the subject ID
+
+SELECT 
+    sub.subject_name,
+    COUNT(CASE WHEN a.present = TRUE THEN 1 END) AS present_count,
+    COUNT(CASE WHEN a.absent = TRUE THEN 1 END) AS absent_count
+FROM 
+    Student s
+JOIN 
+    RelationalTable_R3 r3 ON s.sid = r3.sid
+JOIN 
+    RelationalTable_R4 r4 ON r3.aid = r4.aid
+JOIN 
+    Period p ON r4.pid = p.pid
+JOIN 
+    Subject sub ON p.subid = sub.subid
+JOIN 
+    Attendance a ON r3.aid = a.aid
+WHERE 
+    s.sid = 1
+    AND sub.subid = 2130
+GROUP BY 
+    sub.subject_name;

@@ -6,6 +6,27 @@
     padding: 20px;
 }
 
+@media (max-width: 768px) {
+    .class-name {
+        white-space: normal; /* Allow wrapping on small screens */
+        word-wrap: break-word; /* Break long words if necessary */
+        overflow-wrap: break-word; /* Ensure compatibility for breaking */
+    }
+}
+
+.class-name {
+    white-space: normal; /* Allow wrapping for multi-line names */
+    word-wrap: break-word; /* Enable word breaking for long text */
+    overflow-wrap: break-word; /* Support older browsers */
+    max-width: 100%; /* Prevent overflowing beyond container */
+    font-weight: 600;
+    font-size: 1.2rem;
+    line-height: 1.4; /* Improve spacing for multi-line text */
+    color: #333;
+    flex-grow: 1; /* Ensure it takes up available space */
+    text-align: left; /* Align text to the left for readability */
+}
+
 .classes-section {
     background-color: #fff;
     border-radius: 10px;
@@ -28,8 +49,8 @@
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
-    display: flex;  /* Use flexbox for alignment */
-    flex-direction: column;  /* Stack elements vertically by default */
+    display: flex; /* Use flexbox for alignment */
+    flex-direction: column; /* Stack elements vertically by default */
 }
 
 .class-card:hover {
@@ -42,18 +63,9 @@
 .class-card-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start; /* Align items to the top for multi-line text */
     width: 100%;
-}
-
-.class-name {
-    font-weight: 600;
-    font-size: 1.2rem;
-    color: #333;
-    flex-grow: 1;  /* Allow class name to take available space */
-    white-space: nowrap;  /* Prevent text from wrapping */
-    overflow: hidden;  /* Hide overflow */
-    text-overflow: ellipsis;  /* Add "..." for overflow text */
+    gap: 10px; /* Add spacing between name and type */
 }
 
 .course-type {
@@ -75,7 +87,7 @@
 /* Class details layout */
 .class-details {
     display: flex;
-    flex-wrap: wrap;  /* Allow wrapping in smaller screens */
+    flex-wrap: wrap; /* Allow wrapping in smaller screens */
     margin-top: 10px;
     width: 100%;
 }
@@ -84,7 +96,7 @@
 .class-location {
     display: flex;
     align-items: center;
-    margin-right: 15px;  /* Spacing between time and location */
+    margin-right: 15px; /* Spacing between time and location */
     margin-bottom: 5px;
     color: #202020;
     font-weight: 500; /* Slight bold */
@@ -101,7 +113,7 @@
 @media (max-width: 768px) {
     .class-card {
         padding: 10px;
-        flex-direction: column;  /* Stack elements vertically on smaller screens */
+        flex-direction: column; /* Stack elements vertically on smaller screens */
     }
 
     .class-name {
@@ -113,7 +125,7 @@
     }
 
     .class-details {
-        flex-direction: column;  /* Stack time and location vertically on small screens */
+        flex-direction: column; /* Stack time and location vertically on small screens */
         align-items: flex-start;
     }
 }

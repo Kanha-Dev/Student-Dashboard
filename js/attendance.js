@@ -238,7 +238,7 @@ async function fetchAttendance(studentId, subjectId) {
 }
 
 // Example: Fetch attendance for multiple subjects
-const studentId = "1"; // Replace with the actual student ID dynamically if required
+const studentId = localStorage.getItem('sid');
 const subjectIds = ["2130", "2131", "2132"]; // Replace with actual subject IDs
 
 document.addEventListener("DOMContentLoaded", () => {

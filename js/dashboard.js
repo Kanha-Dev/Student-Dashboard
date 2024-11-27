@@ -96,6 +96,7 @@ async function updateUserDetails() {
         // Store sid in local storage for use in other files
         if (data.sid) {
             localStorage.setItem('sid', data.sid);
+            localStorage.setItem('email', regNumber);
             console.log(`SID ${data.sid} stored in local storage.`);
         } else {
             console.warn("SID is missing in the response data.");
@@ -105,8 +106,77 @@ async function updateUserDetails() {
     }
 }
 
-// Call the function when the page loads
-document.addEventListener('DOMContentLoaded', updateUserDetails);
+// Function to dynamically populate today's schedule
+async function populateTodaysSchedule(studentId) {
+    const scheduleApiUrl = `http://localhost:3000/api/todaysSchedule/${studentId}`;
+  
+    try {
+      // Fetch schedule data
+      const response = await fetch(scheduleApiUrl);
+      if (!response.ok) {
+        throw new Error(`Failed to fetch today's schedule! Status: ${response.status}`);
+      }
+  
+      const scheduleData = await response.json();
+  
+      // Reference to the container where class cards will be added
+      const classesListContainer = document.querySelector('.classes-list');
+      classesListContainer.innerHTML = ''; // Clear existing content
+  
+      // Loop through each class and create HTML elements
+      scheduleData.forEach(schedule => {
+        const classCard = document.createElement('div');
+        classCard.classList.add('class-card');
+  
+        // Class Card Header
+        const classCardHeader = document.createElement('div');
+        classCardHeader.classList.add('class-card-header');
+  
+        const className = document.createElement('p');
+        className.classList.add('class-name');
+        className.textContent = schedule.subname; // Subject Name
+  
+        const courseType = document.createElement('span');
+        courseType.classList.add('course-type', schedule.type === 'Lab' ? 'lab' : 'theory');
+        courseType.textContent = schedule.type || 'Theory'; // Theory or Lab
+  
+        classCardHeader.appendChild(className);
+        classCardHeader.appendChild(courseType);
+  
+        // Class Details
+        const classDetails = document.createElement('div');
+        classDetails.classList.add('class-details');
+  
+        const classTime = document.createElement('p');
+        classTime.classList.add('class-time');
+        classTime.innerHTML = `<img src="../images/icons/time_icon.png" alt="Time Icon"> ${schedule.time}`; // Class Time
+  
+        const classLocation = document.createElement('p');
+        classLocation.classList.add('class-location');
+        classLocation.innerHTML = `<img src="../images/icons/room-no-icon.png" alt="Location Icon"> ${schedule.room || 'Room TBD'}`; // Room Number
+  
+        classDetails.appendChild(classTime);
+        classDetails.appendChild(classLocation);
+  
+        // Append to class card
+        classCard.appendChild(classCardHeader);
+        classCard.appendChild(classDetails);
+  
+        // Append to the container
+        classesListContainer.appendChild(classCard);
+      });
+    } catch (error) {
+      console.error("Error fetching or populating schedule:", error);
+    }
+  }
+  
+  // Call the function with the appropriate student ID when the page loads
+  document.addEventListener("DOMContentLoaded", () => {
+    const studentId = "1"; // Replace with dynamic student ID if available
+    updateUserDetails();
+    populateTodaysSchedule(studentId);
+  });
+  
 
 
 // Update active menu item
