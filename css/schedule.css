@@ -1,5 +1,3 @@
-/* schedule.css */
-
 /* Importing the generic styles */
 @import url('./universal.css');
 
@@ -23,13 +21,15 @@
 }
 
 .class-card {
-    background-color: #ffcc80;
+    background-color: #fbb040;
     border-radius: 12px;
     padding: 15px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    display: flex;  /* Use flexbox for alignment */
+    flex-direction: column;  /* Stack elements vertically by default */
 }
 
 .class-card:hover {
@@ -38,16 +38,22 @@
     transform: scale(1.05);
 }
 
+/* Align header elements horizontally */
 .class-card-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
 }
 
 .class-name {
     font-weight: 600;
     font-size: 1.2rem;
     color: #333;
+    flex-grow: 1;  /* Allow class name to take available space */
+    white-space: nowrap;  /* Prevent text from wrapping */
+    overflow: hidden;  /* Hide overflow */
+    text-overflow: ellipsis;  /* Add "..." for overflow text */
 }
 
 .course-type {
@@ -66,21 +72,28 @@
     background-color: #ff9966;
 }
 
+/* Class details layout */
 .class-details {
+    display: flex;
+    flex-wrap: wrap;  /* Allow wrapping in smaller screens */
     margin-top: 10px;
+    width: 100%;
 }
 
 .class-time,
 .class-location {
     display: flex;
     align-items: center;
+    margin-right: 15px;  /* Spacing between time and location */
     margin-bottom: 5px;
-    color: #555;
+    color: #202020;
+    font-weight: 500; /* Slight bold */
 }
 
 .class-time img,
 .class-location img {
-    width: 16px;
+    height: 30px;
+    width: 30px;
     margin-right: 8px;
 }
 
@@ -88,6 +101,7 @@
 @media (max-width: 768px) {
     .class-card {
         padding: 10px;
+        flex-direction: column;  /* Stack elements vertically on smaller screens */
     }
 
     .class-name {
@@ -96,6 +110,11 @@
 
     .course-type {
         font-size: 0.8rem;
+    }
+
+    .class-details {
+        flex-direction: column;  /* Stack time and location vertically on small screens */
+        align-items: flex-start;
     }
 }
 
