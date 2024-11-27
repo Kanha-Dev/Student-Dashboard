@@ -91,10 +91,10 @@ NATURAL JOIN
     Subject s
 WHERE 
     r3.sid = 1
-    AND p.date = '2024-11-01';
+    AND p.date = ?;
     `;
 
-    con.query(query, sid, (err, result) => {
+    con.query(query, [sid,today], (err, result) => {
         if (err) {
             console.error("Error executing query: ", err);
             res.status(500).json({ error: "Database query failed" });
