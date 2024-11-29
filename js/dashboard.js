@@ -93,6 +93,7 @@ async function updateUserDetails() {
         nameElement.textContent = "Welcome back, " + data.sname + "!" || "N/A";
         document.querySelector('.user-name').textContent = data.sname || "N/A";
         document.querySelector('.user-reg').textContent = data.sid || "N/A";
+        // document.querySelector('.profile-icon').src = `./images/pfp/${data.sid}.png` || "N/A";
 
         // Store sid in local storage for use in other files
         if (data.sid) {
