@@ -13,7 +13,7 @@ app.use(express.json());
 const con = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "",
+    password: "root",
     database: "SchoolManagementSystem"
 });
 
@@ -90,7 +90,7 @@ NATURAL JOIN
 NATURAL JOIN 
     Subject s
 WHERE 
-    r3.sid = 1
+    r3.sid = ?
     AND p.date = ?;
     `;
 
@@ -99,7 +99,7 @@ WHERE
             console.error("Error executing query: ", err);
             res.status(500).json({ error: "Database query failed" });
         } else {
-            res.json(result);
+            console.log(res.json(result));
         }
     });
 });
