@@ -10,4 +10,4 @@ const day = String(today.getDate()).padStart(2, '0');
 const dateString = `${year}-${month}-${day}`;
 
 // Update the content of the paragraph with class 'date'
-document.getElementById('today-date').textContent = `Today's Date: ${dateString}`;
+document.getElementById('date').textContent = `Today's Date: ${dateString}`;

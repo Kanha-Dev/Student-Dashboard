@@ -51,8 +51,8 @@ async function updateUserDetails() {
         document.getElementById('address').value = data.current_address || '';
         document.getElementById('semester').value = data.department || '';
         document.getElementById('section').value = data.department || '';
-        document.getElementById('guardian-name').value = data.department || '';
-        document.getElementById('guardian-email').value = data.department || '';
+        document.getElementById('guardian-name').value = data.guardian_name || '';
+        document.getElementById('guardian-email').value = data.guardian_email || '';
 
         // Store sid in local storage for use in other files
         if (data.sid) {
