@@ -38,28 +38,3 @@ loginButton.addEventListener("click", function (event) {
 
 // Replace with the actual registration number of the user (could be dynamically set)
 const email = document.getElementById('login-email').value;
-const userEmail = email;
-
-// Function to fetch and update user details
-async function updateUserDetails() {
-    try {
-        const response = await fetch(`http://localhost:3000/api/student/${userEmail}`);
-        if (!response.ok) throw new Error("Failed to fetch student data");
-
-        const data = await response.json();
-
-        // Update DOM elements
-         // Update DOM elements only if they haven't been updated before
-
-        // Store sid in local storage for use in other files
-        if (data.sid) {
-            localStorage.setItem('sid', data.sid);
-            localStorage.setItem('email', regNumber);
-            console.log(`SID ${data.sid} stored in local storage.`);
-        } else {
-            console.warn("SID is missing in the response data.");
-        }
-    } catch (error) {
-        console.error("Error updating user details:", error);
-    }
-}
