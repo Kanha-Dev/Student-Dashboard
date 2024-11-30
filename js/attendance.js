@@ -172,6 +172,7 @@ async function fetchAttendance(studentId, subjectId) {
       throw new Error(`Failed to fetch attendance data! Status: ${attendanceResponse.status}`);
     }
     const attendanceData = await attendanceResponse.json();
+    console.log(attendanceData);
     const attendance = attendanceData.attendance;
     const presentCount = attendance.present_count || 0;
     const absentCount = attendance.absent_count || 0;
@@ -258,6 +259,8 @@ async function updateUserDetails() {
         if (!response.ok) throw new Error("Failed to fetch student data");
 
         const data = await response.json();
+
+        
 
         // Update DOM elements
          // Update DOM elements only if they haven't been updated before
