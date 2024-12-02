@@ -20,9 +20,12 @@
     font-size: 1rem;
     border-radius: 10px;
     border: 1px solid #ddd;
-    background-color: #fff;
+    background-color: var(--text-color-light),var(--text-color-dark);
 }
-
+option{
+    background-color: light-dark(var(--text-color-light),var(--text-color-dark));
+    color:  light-dark(var(--text-color-dark),var(--text-color-light));
+}
 .search-button {
     padding: 10px 20px;
     background-color: #ff9900;
@@ -32,7 +35,9 @@
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
-
+.semester-dropdown-select:hover {
+    background-color: #e68a00;
+}
 .search-button:hover {
     background-color: #e68a00;
 }
@@ -58,21 +63,21 @@
 
 .marks-table th {
     background-color: #ffcc80;
-    color: #333;
+    color:  light-dark(var(--text-color-dark),var(--text-color-light));
     font-weight: bold;
 }
 
 .marks-table tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
+    background-color: var(--text-color-light),var(--text-color-dark);
 }
 
 .marks-table tbody tr:hover {
-    background-color: #f1f1f1;
+    background-color: #ffcc80;
 }
 
 .marks-table td {
     font-size: 1rem;
-    color: #555;
+    color:  light-dark(var(--text-color-dark),var(--text-color-light));
 }
 
 .marks-table td:first-child {

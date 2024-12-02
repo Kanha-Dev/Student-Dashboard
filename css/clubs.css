@@ -6,7 +6,8 @@
 /* Club Section */
 .club-section {
     padding: 20px;
-    background-color: #ffffff;
+    background-color: var(--text-color-light),var(--text-color-dark);
+    color:  light-dark(var(--text-color-dark),var(--text-color-light));
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     margin-top: 20px;
@@ -14,7 +15,7 @@
 
 .section-heading {
     font-size: 1.8rem;
-    color: #2c3e50;
+    color:  light-dark(var(--text-color-dark),var(--text-color-light));
     margin-bottom: 15px;
 }
 
@@ -57,7 +58,8 @@
 }
 
 .modal-content {
-    background-color: white;
+    background-color: light-dark(var(--text-color-light),var(--text-color-dark));
+    color:  light-dark(var(--text-color-dark),var(--text-color-light));
     padding: 20px;
     border-radius: 10px;
     width: 80%;
@@ -85,11 +87,12 @@
 
 .club-details th {
     background-color: #f39c12;
-    color: white;
+    color:  light-dark(#ddd,var(--text-color-light));
 }
 
 .club-details td {
-    background-color: #f9f9f9;
+    background-color: light-dark(var(--text-color-light),var(--text-color-dark));
+    color:  light-dark(var(--text-color-dark),var(--text-color-light));
 }
 
 .close {

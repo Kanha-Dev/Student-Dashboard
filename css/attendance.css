@@ -13,7 +13,8 @@
 /* Accordion item styles */
 .accordion-item {
     margin-bottom: 10px;
-    background-color: #fff; /* White background for items */
+    background-color: var(--text-color-light),var(--text-color-dark);
+    color:  light-dark(var(--text-color-dark),var(--text-color-light));
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow */
     border-radius: 10px;
     transition: background-color 0.3s, box-shadow 0.3s;
@@ -22,8 +23,8 @@
 /* Accordion header styles */
 .accordion-header {
     width: 100%;
-    background-color: #ff9900; /* Theme color */
-    color: #fff;
+    background-color: var(--text-color-light),var(--text-color-dark);
+    color:  light-dark(var(--text-color-dark),var(--text-color-light));
     text-align: left;
     font-weight: 600;
     cursor: pointer;
@@ -34,11 +35,13 @@
     padding: 15px;
     border-radius: 10px;
     transition: background-color 0.3s ease, box-shadow 0.3s;
+    filter: blur(0.3px);
 }
 
 /* Hover effect for the accordion header */
 .accordion-header:hover {
-    background-color: #e68a00; /* Darker on hover */
+    background-color: light-dark(#ff9900,var(--text-color-dark));
+    color:  light-dark(#e6e6e6,#ff9900);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow on hover */
 }
 
@@ -54,8 +57,8 @@
 
 /* Accordion content styles */
 .accordion-content {
-    color: #fff; /* White text color */
-    background-color: #ff9900; /* Orange background */
+    background-color: var(--text-color-light),var(--text-color-dark);
+    color:  light-dark(var(--text-color-dark),var(--text-color-light));
     overflow: hidden;
     max-height: 0; /* Initially collapsed */
     transition: max-height 0.3s ease-out, padding 0.3s ease-out;
@@ -78,12 +81,16 @@
     font-size: 1rem;
     display: inline-block;
     vertical-align: top;
-    color: white;
+    color:  light-dark(var(--text-color-dark),var(--text-color-light));
+    
 }
 
 .attendance-info p {
     margin: 10px 0;
-    color: white;
+    color:  light-dark(var(--text-color-dark),var(--text-color-light));
+    &:hover{
+        color:  light-dark(#e6e6e6,#ff9900);
+        }
 }
 
 /* Pie chart section */
@@ -118,11 +125,10 @@ canvas {
 /* Styling for the right pane */
 .pane2 {
     width: 20%; /* Reduced width for the notice panel */
-    background-color: #fff;
     border-radius: 10px;
     padding: 20px;
     margin-left: 20px; /* Add space between the panes */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(163, 156, 156, 0.1);
 }
 
 /* Adjust the Daily Notice Section */
@@ -185,7 +191,7 @@ canvas {
 .section-heading {
     font-size: 1.5rem;
     font-weight: 600;
-    color: #333;
+    color:  light-dark(var(--text-color-dark),var(--text-color-light));
     margin: 20px 0; /* Space between heading and content */
     text-align: center; /* Center align the heading */
 }
