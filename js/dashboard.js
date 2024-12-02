@@ -78,6 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // Replace with the actual registration number of the user (could be dynamically set)
 // const regNumber = "arjun.mehta@example.com";
 const regNumber = localStorage.getItem('email');
+// const regNumber = 'arjun.mehta@example.com';
 
 // Function to fetch and update user details
 async function updateUserDetails() {
@@ -86,6 +87,8 @@ async function updateUserDetails() {
         if (!response.ok) throw new Error("Failed to fetch student data");
 
         const data = await response.json();
+
+        console.log(data);
 
         // Update DOM elements
          // Update DOM elements only if they haven't been updated before
@@ -115,6 +118,7 @@ async function updateTodaysSchedule() {
       if (!response.ok) throw new Error("Failed to fetch today's schedule");
   
       const scheduleData = await response.json();
+      console.log(scheduleData);
   
       // Reference the container for the schedule
       const classesContent = document.querySelector('.classes-content');

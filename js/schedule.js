@@ -37,6 +37,7 @@ async function populateTodaysSchedule(studentId) {
     }
 
     const scheduleData = await response.json();
+    console.log(scheduleData);
 
     // Reference to the container where class cards will be added
     const classesListContainer = document.querySelector('.classes-list');
