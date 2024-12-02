@@ -13,7 +13,7 @@ app.use(express.json());
 const con = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "",
+    password: "root",
     database: "SchoolManagementSystem"
 });
 
@@ -99,7 +99,7 @@ WHERE
             console.error("Error executing query: ", err);
             res.status(500).json({ error: "Database query failed" });
         } else {
-            console.log(res.json(result));
+            res.json(result);
         }
     });
 });
